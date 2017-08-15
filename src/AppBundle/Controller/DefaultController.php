@@ -12,6 +12,7 @@ class DefaultController extends FOSRestController
         // $data = json_decode($request->getContent(), true);
 
         $logger = $this->get('logger');
+        $logger->critical($request->getContent());
         $logger->debug($request->getContent());
 
         // TODO Continue
