@@ -12,9 +12,9 @@ class DefaultController extends FOSRestController
     public function postTweetAction(Request $request)
     {
         $data = json_decode($request->getContent(), true);
-        $log = new Logger('event');
+        $log = new Logger('tweet');
         $log->pushHandler(new StreamHandler('php://stderr', Logger::DEBUG));
-        $log->addDebug('Foo', $data);
+        $log->addDebug('data', $data);
 
         // TODO Continue
     }
