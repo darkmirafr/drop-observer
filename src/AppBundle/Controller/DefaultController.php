@@ -9,8 +9,11 @@ class DefaultController extends FOSRestController
 {
     public function postTweetAction(Request $request)
     {
-        $data = json_decode($request->getContent(), true);
+        // $data = json_decode($request->getContent(), true);
+
+        $logger = $this->get('logger');
+        $logger->debug($request->getContent());
+
         // TODO Continue
-        dump($data);die;
     }
 }
