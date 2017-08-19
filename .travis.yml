@@ -11,4 +11,4 @@ env:
 
 install: composer install
 
-script: php bin/console security:check
+script: php bin/console about
