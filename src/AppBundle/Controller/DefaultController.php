@@ -7,12 +7,14 @@ use FOS\RestBundle\Controller\FOSRestController;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends FOSRestController
 {
-    public function getTweetsAction(Request $request)
+    /**
+     * @return JsonResponse
+     */
+    public function getTweetsAction()
     {
         $log = new Logger('twitter');
         $log->pushHandler(new StreamHandler('php://stderr', Logger::DEBUG));
@@ -30,6 +32,8 @@ class DefaultController extends FOSRestController
 
         $connection = new TwitterOAuth($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret);
 
+        // 75 calls / 15min  => 1call / 12sec
+        // @see https://dev.twitter.com/rest/reference/get/statuses/mentions_timeline
         $mentionsTimeline = $connection->get('statuses/mentions_timeline', ['count' => 200]);
         $data = [];
         foreach ($mentionsTimeline as $mentionTimeline){
@@ -41,8 +45,8 @@ class DefaultController extends FOSRestController
                 'user_name' => $mentionTimeline->user->name,
                 'user_screen_name' => $mentionTimeline->user->screen_name,
             ];
-            $log->addDebug('event', $data);
         }
+        $log->addDebug('event', $data);
 
         return new JsonResponse($data, Response::HTTP_I_AM_A_TEAPOT);
     }

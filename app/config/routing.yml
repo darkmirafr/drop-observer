@@ -1,4 +1,4 @@
 app:
     type:     rest
-    prefix: /api
-    resource: AppBundle\Controller\DefaultController
+    prefix:   /api
+    resource: AppBundle\Controller
