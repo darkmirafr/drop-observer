@@ -8,6 +8,7 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends FOSRestController
 {
@@ -43,6 +44,6 @@ class DefaultController extends FOSRestController
             $log->addDebug('event', $data);
         }
 
-        return new JsonResponse($data);
+        return new JsonResponse($data, Response::HTTP_I_AM_A_TEAPOT);
     }
 }
