@@ -1,0 +1,13 @@
+language: php
+
+php:
+  - '7.0'
+  - '7.1'
+
+env:
+  - SYMFONY_ENV=dev
+  - SYMFONY_ENV=prod
+
+install: composer install
+
+script: php bin/console about
