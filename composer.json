@@ -1,8 +1,8 @@
 {
-    "name": "symfony/framework-standard-edition",
+    "name": "darkmira/drop-observer",
     "license": "MIT",
     "type": "project",
-    "description": "The \"Symfony Standard Edition\" distribution",
+    "description": "The DROP obServer project",
     "autoload": {
         "psr-4": {
             "AppBundle\\": "src/AppBundle"
@@ -14,7 +14,7 @@
         "files": [ "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php" ]
     },
     "require": {
-        "php": ">=5.5.9",
+        "php": ">=7.0.0",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",
         "incenteev/composer-parameter-handler": "^2.0",
@@ -22,7 +22,7 @@
         "sensio/framework-extra-bundle": "^3.0.2",
         "symfony/monolog-bundle": "^3.1.0",
         "symfony/polyfill-apcu": "^1.0",
-        "symfony/swiftmailer-bundle": "^2.3.10",
+        "symfony/swiftmailer-bundle": "^3.0.4",
         "symfony/symfony": "3.3.*",
         "twig/twig": "^1.0||^2.0"
     },
