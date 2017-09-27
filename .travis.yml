@@ -6,7 +6,6 @@ php:
 
 env:
   - SYMFONY_ENV=dev
-  - SYMFONY_ENV=prod
 
 install: composer install
 
