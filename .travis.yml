@@ -7,6 +7,6 @@ php:
 env:
   - SYMFONY_ENV=dev
 
-install: composer install
+install: composer install --no-interaction
 
-script: php bin/console about
+script: phpunit
