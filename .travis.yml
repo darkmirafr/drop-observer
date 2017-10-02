@@ -5,8 +5,8 @@ php:
   - '7.1'
 
 env:
-  - SYMFONY_ENV=dev
+  - SYMFONY_ENV=test
 
-install: composer install
+install: composer install --no-interaction
 
-script: php bin/console about
+script: phpunit
