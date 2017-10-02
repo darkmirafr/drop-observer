@@ -5,7 +5,7 @@ php:
   - '7.1'
 
 env:
-  - SYMFONY_ENV=dev
+  - SYMFONY_ENV=test
 
 install: composer install --no-interaction
 
