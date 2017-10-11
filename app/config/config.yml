@@ -69,10 +69,6 @@ fos_rest:
         default_format: json
     param_fetcher_listener: true
     body_listener: true
-    format_listener:
-        enabled: true
-        rules:
-            - { path: '^/api/', priorities: ['json'], fallback_format: 'xml' }
     versioning: true
     view:
         formats:
