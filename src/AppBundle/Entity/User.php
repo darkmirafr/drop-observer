@@ -32,6 +32,13 @@ class User implements UserInterface
     /**
      * @var string
      *
+     * @ORM\Column(unique=true)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
      * @ORM\Column
      */
     private $password;
@@ -40,7 +47,7 @@ class User implements UserInterface
     /**
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -48,9 +55,9 @@ class User implements UserInterface
     /**
      * @param string $username
      *
-     * @return User
+     * @return $this
      */
-    public function setUsername($username)
+    public function setUsername($username): self
     {
         $this->username = $username;
 
@@ -60,17 +67,35 @@ class User implements UserInterface
     /**
      * @return string
      */
-    public function getUsername()
+    public function getUsername(): string
     {
         return $this->username;
     }
 
     /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     * @return self
+     */
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+        return $this;
+    }
+
+    /**
      * @param string $password
      *
-     * @return User
+     * @return $this
      */
-    public function setPassword($password)
+    public function setPassword($password): self
     {
         $this->password = $password;
 
@@ -80,29 +105,30 @@ class User implements UserInterface
     /**
      * @return string
      */
-    public function getPassword()
+    public function getPassword(): string
     {
         return $this->password;
     }
 
     /**
+     * @return array
+     */
+    public function getRoles(): array
+    {
+        return array('ROLE_USER');
+    }
+
+    /**
      * @inheritDoc
      */
-    public function getRoles()
+    public function getSalt(): void
     {
     }
 
     /**
      * @inheritDoc
      */
-    public function getSalt()
-    {
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function eraseCredentials()
+    public function eraseCredentials(): void
     {
     }
 
