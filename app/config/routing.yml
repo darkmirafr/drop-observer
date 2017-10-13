@@ -1,6 +1,14 @@
-default:
+homepage:
     path:     /
-    defaults: { _controller: AppBundle:Default:index }
+    defaults: { _controller: AppBundle:Homepage:index }
+
+login:
+    path:     /login
+    defaults: { _controller: AppBundle:Login:index }
+
+register:
+    path:     /register
+    defaults: { _controller: AppBundle:Register:index }
 
 message:
     type: rest

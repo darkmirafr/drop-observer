@@ -44,9 +44,9 @@ class Message
      *
      * @param string $tweet
      *
-     * @return Message
+     * @return $this
      */
-    public function setTweet($tweet)
+    public function setTweet($tweet): self
     {
         $this->tweet = $tweet;
 
@@ -58,7 +58,7 @@ class Message
      *
      * @return string
      */
-    public function getTweet()
+    public function getTweet(): string
     {
         return $this->tweet;
     }

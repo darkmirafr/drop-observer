@@ -1,12 +1,15 @@
 language: php
 
 php:
-  - '7.0'
   - '7.1'
 
 env:
   - SYMFONY_ENV=test
 
-install: composer install --no-interaction
+install:
+  - composer install --no-interaction
+  - php bin/console doctrine:database:create
+  - php bin/console doctrine:schema:update --force
+  - php bin/console doctrine:fixtures:load --no-interaction
 
 script: phpunit
