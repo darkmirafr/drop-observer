@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="{{ path('homepage') }}">obServer</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ path('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('register') }}">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_label(form.email) }}
+                {{ form_errors(form.email) }}
+                {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.username) }}
+                {{ form_errors(form.username) }}
+                {{ form_widget(form.username, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.password.first) }}
+                {{ form_errors(form.password.first) }}
+                {{ form_widget(form.password.first, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.password.second) }}
+                {{ form_errors(form.password.second) }}
+                {{ form_widget(form.password.second, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
