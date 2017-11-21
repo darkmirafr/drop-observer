@@ -1,0 +1,12 @@
+{
+  "name": "drop-observer",
+  "description": "",
+  "scripts": {
+  },
+  "formation": {
+  },
+  "addons": [
+  ],
+  "buildpacks": [
+  ]
+}
