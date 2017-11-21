@@ -33,3 +33,7 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
+    my.oauth_aware.user_provider.service:
+        class: HWI\Bundle\OAuthBundle\Security\Core\User\FOSUBUserProvider
+        autowire: true
