@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="google-signin-client_id" content="{{ GOOGLE_CLIENT_ID }}.apps.googleusercontent.com">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>{% block title %}obServer | DROP{% endblock %}</title>
     {% block stylesheets %}
@@ -12,6 +13,7 @@
 <body>
 {% block body %}{% endblock %}
 {% block javascripts %}
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="{{ asset('js/init.js') }}"></script>
