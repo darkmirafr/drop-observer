@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <div class="section">
+        <div class="row center">
+            {% if error is defined and error %}
+                <span>{{ error }}</span>
+            {% endif %}
+            <a href="{{ hwi_oauth_login_url('google') }}" class="waves-effect waves-light btn-large"><i class="material-icons left">account_circle</i>Sign in with Google</a>
+        </div>
+    </div>
+</div>
+{% endblock body %}
