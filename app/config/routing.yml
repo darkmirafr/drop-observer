@@ -15,5 +15,9 @@ home:
     path:     /
     defaults: { _controller: AppBundle:Home:index }
 
+admin:
+    path:     /admin
+    defaults: { _controller: AppBundle:Admin:index }
+
 google_login:
     path: /login/check-google
