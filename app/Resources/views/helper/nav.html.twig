@@ -2,6 +2,7 @@
     <div class="nav-wrapper container"><a id="logo-container" href="{{ path('home') }}" class="brand-logo">obServer</a>
         <ul class="right hide-on-med-and-down">
             <li {% if "hwi_oauth_connect" == app.request.get('_route') %}class="active"{% endif %}><a href="/login">Login</a></li>
+            <li><a href="#">Admin</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
 

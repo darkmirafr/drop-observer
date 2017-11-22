@@ -6,13 +6,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class HomeController extends Controller
+class AdminController extends Controller
 {
 
     public function indexAction(Request $request)
     {
-        return $this->render('home/index.html.twig', [
-            'GOOGLE_CLIENT_ID' => 'what',
-        ]);
+        return $this->render('admin/index.html.twig');
     }
 }
