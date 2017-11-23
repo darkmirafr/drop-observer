@@ -3,7 +3,7 @@ imports:
 
 doctrine:
     dbal:
-        url: "%env(HEROKU_POSTGRESQL_GOLD_URL)%"
+        url: "%env(DATABASE_URL)%"
 
 monolog:
     handlers:
