@@ -20,10 +20,9 @@ class UserProvider implements OAuthAwareUserProviderInterface
     {
         $email = $response->getEmail();
         $username = $response->getNickname();
-
         $userRepository = $this->em->getRepository(User::class);
 
-        $user = $userRepository->findByEmail($email);
+        $user = $userRepository->findOneByEmail($email);
 
         if (empty($user)){
             $user = new User();
@@ -35,8 +34,6 @@ class UserProvider implements OAuthAwareUserProviderInterface
         }
 
         return $user;
-
     }
-
 
 }
