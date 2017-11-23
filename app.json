@@ -7,7 +7,7 @@
     "SYMFONY_ENV": {
       "required": true
     },
-    "DATABASE_URL": {
+    "HEROKU_POSTGRESQL_GOLD_URL": {
       "required": true
     }
   },
