@@ -33,3 +33,6 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
+    my.oauth_aware.user_provider.service:
+        class: AppBundle\Provider\UserProvider

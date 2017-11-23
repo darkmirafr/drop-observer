@@ -2,10 +2,18 @@
 # https://symfony.com/doc/current/security.html
 security:
 
+    encoders:
+        AppBundle\Entity\User:
+            algorithm: bcrypt
+
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         in_memory:
             memory: ~
+        user_provider:
+            entity:
+                class: AppBundle:User
+                property: email
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -13,8 +21,7 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        main:
-            anonymous: ~
+
             # activate different ways to authenticate
 
             # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
@@ -22,3 +29,23 @@ security:
 
             # https://symfony.com/doc/current/security/form_login_setup.html
             #form_login: ~
+
+        secured_area:
+            anonymous: ~
+            oauth:
+                resource_owners:
+                    google:        "/login/check-google"
+                login_path:        /login
+                use_forward:       false
+                failure_path:      /login
+                oauth_user_provider:
+                    service: my.oauth_aware.user_provider.service
+            logout:
+                 path:   /logout
+                 target: /
+
+        main:
+            anonymous: ~
+
+    access_control:
+        - { path: ^/admin, roles: ROLE_USER }

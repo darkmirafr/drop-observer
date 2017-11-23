@@ -1,33 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<nav class="light-green" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">obServer</a>
-        <ul class="right hide-on-med-and-down">
-            <li><a href="#">Contact</a></li>
-        </ul>
-
-        <ul id="nav-mobile" class="side-nav">
-            <li><a href="#">Contact</a></li>
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-</nav>
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
+        <div class="parallax-container">
+            <div class="parallax"><img src="https://images.apple.com/macos/high-sierra-preview/overview/beta/image_large_2x.jpg"></div>
+        </div>
         <br><br>
         <h1 class="header center blue-grey-text">DROP | obServer</h1>
         <div class="row center">
             <h5 class="header col s12 light">A modern way to listen & talk</h5>
         </div>
-        <div class="row center">
-            <div class="g-signin2 waves-effect" data-onsuccess="onSignIn"></div>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="section">
 
         <div class="row">
             <div class="col s12 m4">
@@ -51,5 +34,6 @@
 
     </div>
 </div>
+
 
 {% endblock %}

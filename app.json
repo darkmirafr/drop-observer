@@ -1,7 +1,15 @@
 {
   "name": "drop-observer",
-  "description": "",
+  "description": "drop-observer project",
   "scripts": {
+  },
+  "env": {
+    "SYMFONY_ENV": {
+      "required": true
+    },
+    "DATABASE_URL": {
+      "required": true
+    }
   },
   "formation": {
   },
