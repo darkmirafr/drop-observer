@@ -41,7 +41,8 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ],
         "post-install-cmd": [
-            "@symfony-scripts"
+            "@symfony-scripts",
+            "php bin/console doctrine:schema:update --force"
         ],
         "post-update-cmd": [
             "@symfony-scripts"
