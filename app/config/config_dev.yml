@@ -40,6 +40,11 @@ monolog:
 #swiftmailer:
 #    delivery_addresses: ['me@example.com']
 
+doctrine:
+    dbal:
+        driver: pdo_sqlite
+        path: '%kernel.project_dir%/app/sqlite.db'
+
 hwi_oauth:
     http_client:
         verify_peer: false

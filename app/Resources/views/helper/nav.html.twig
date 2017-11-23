@@ -1,13 +1,22 @@
 <nav class="light-green" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="{{ path('home') }}" class="brand-logo">obServer</a>
         <ul class="right hide-on-med-and-down">
-            <li {% if "hwi_oauth_connect" == app.request.get('_route') %}class="active"{% endif %}><a href="/login">Login</a></li>
-            <li><a href="{{ path('admin') }}">Admin</a></li>
+            {% if not is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+                <li {% if "hwi_oauth_connect" == app.request.get('_route') %}class="active"{% endif %}><a href="/login">Login</a></li>
+            {% endif %}
+            {% if is_granted('ROLE_USER') %}
+                <li {% if "admin" == app.request.get('_route') %}class="active"{% endif %}><a href="{{ path('admin') }}">Admin</a></li>
+            {% endif %}
             <li><a href="#">Contact</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
-            <li><a href="{{ path('hwi_oauth_connect') }}">Login</a></li>
+            {% if not is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+                <li {% if "hwi_oauth_connect" == app.request.get('_route') %}class="active"{% endif %}><a href="/login">Login</a></li>
+            {% endif %}
+            {% if is_granted('ROLE_USER') %}
+                <li {% if "admin" == app.request.get('_route') %}class="active"{% endif %}><a href="{{ path('admin') }}">Admin</a></li>
+            {% endif %}
             <li><a href="#">Contact</a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
