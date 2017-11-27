@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+    php:
+        image: php:7.1-alpine
+        ports:
+            - "80:80"
+        volumes:
+            - .:/var/www/html/
+
+    composer:
+        image: composer:latest

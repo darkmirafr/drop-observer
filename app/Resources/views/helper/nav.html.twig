@@ -1,12 +1,12 @@
 <ul id="dropdownLogin" class="dropdown-content">
     <li><a href="{{ path('logout') }}">Logout</a></li>
 </ul>
-<nav class="light-green" role="navigation">
+<nav class="green" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="{{ path('home') }}" class="brand-logo">obServer</a>
         <ul class="right hide-on-med-and-down">
             {% if is_granted('ROLE_USER') %}
                 <li {% if "admin" == app.request.get('_route') %}class="active"{% endif %}><a href="{{ path('admin') }}">Admin</a></li>
-                <li><a class="dropdown-button" href="#!" data-activates="dropdownLogin">{{ app.user.username }}<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a class="dropdown-button" href="#" data-activates="dropdownLogin">{{ app.user.username }}<i class="material-icons right">arrow_drop_down</i></a></li>
             {% else %}
                 <li {% if "hwi_oauth_connect" == app.request.get('_route') %}class="active"{% endif %}><a href="{{ path('hwi_oauth_connect') }}">Login</a></li>
             {% endif %}
@@ -16,7 +16,7 @@
         <ul id="nav-mobile" class="side-nav">
             {% if is_granted('ROLE_USER') %}
                 <li {% if "admin" == app.request.get('_route') %}class="active"{% endif %}><a href="{{ path('admin') }}">Admin</a></li>
-                <li><a class="dropdown-button" href="#!" data-activates="dropdownLogin">{{ app.user.username }}<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a href="{{ path('logout') }}">Logout</a></li>
             {% else %}
                 <li {% if "hwi_oauth_connect" == app.request.get('_route') %}class="active"{% endif %}><a href="{{ path('hwi_oauth_connect') }}">Login</a></li>
             {% endif %}
