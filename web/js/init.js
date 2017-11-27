@@ -1,4 +1,14 @@
 $(function() {
+
+    function setTimeToClock() {
+        var d = new Date();
+        document.getElementById("clock").innerHTML = d.toLocaleTimeString();
+    }
+    setTimeToClock();
+    setInterval(function() {
+        setTimeToClock();
+    }, 1000);
+
     $(".button-collapse").sideNav();
     $('.parallax').parallax();
     $('.collapsible').collapsible();
@@ -11,4 +21,5 @@ $(function() {
         hover: false,
         belowOrigin: true
     });
+
 });

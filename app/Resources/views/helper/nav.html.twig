@@ -11,6 +11,7 @@
                 <li {% if "hwi_oauth_connect" == app.request.get('_route') %}class="active"{% endif %}><a href="{{ path('hwi_oauth_connect') }}">Login</a></li>
             {% endif %}
             <li><a href="#">Contact</a></li>
+            <li><span class="blue-grey-text flow-text" id="clock">00:00:00</span></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
