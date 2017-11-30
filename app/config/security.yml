@@ -8,12 +8,12 @@ security:
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
-        in_memory:
-            memory: ~
         user_provider:
             entity:
                 class: AppBundle:User
                 property: email
+        in_memory:
+            memory: ~
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -32,6 +32,7 @@ security:
 
         secured_area:
             anonymous: ~
+            logout_on_user_change: true
             oauth:
                 resource_owners:
                     google:        "/login/check-google"
@@ -46,6 +47,7 @@ security:
 
         main:
             anonymous: ~
+            logout_on_user_change: true
 
     access_control:
         - { path: ^/admin, roles: ROLE_USER }
