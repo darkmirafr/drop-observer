@@ -5,7 +5,7 @@ php:
   - nightly
 
 env:
-  - SYMFONY_ENV=test
+  - SYMFONY_ENV=prod
 
 matrix:
   allow_failures:
@@ -13,4 +13,8 @@ matrix:
 
 script:
   - composer install
-  - php --version
+  - php bin/console doctrine:schema:update --force
+  - php bin/console doctrine:schema:validate
+  - php bin/console security:check
+  - php bin/console doctrine:ensure-production-settings
+  - php bin/console about
