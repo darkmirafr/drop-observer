@@ -12,4 +12,5 @@ matrix:
     - php: nightly
 
 script:
+  - composer install
   - php --version
