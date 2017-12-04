@@ -1,0 +1,7 @@
+pre_composer_script: |
+    #!/bin/bash
+    export SYMFONY_ENV=test
+post_composer_script: |
+    #!/bin/bash
+    php -v
+   
