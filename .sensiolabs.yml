@@ -1,7 +1,3 @@
-pre_composer_script: |
-    #!/bin/bash
-    export SYMFONY_ENV=test
-post_composer_script: |
-    #!/bin/bash
-    php -v
-   
+rules:
+    symfony.application_not_bootable:
+        enabled: false
