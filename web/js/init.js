@@ -14,10 +14,6 @@ $(function() {
         $('blockquote').fadeIn(5000);
     });
     $('.collapsible').collapsible();
-    $('#form-settings').submit(function(event) {
-        event.preventDefault();
-        $('#preloader').show();
-    });
     $('.dropdown-button').dropdown({
         constrainWidth: true,
         hover: false,

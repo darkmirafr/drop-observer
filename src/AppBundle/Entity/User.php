@@ -16,25 +16,53 @@ class User implements UserInterface
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue
      */
     private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255, unique=true)
+     * @ORM\Column(unique=true)
      */
     private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="username", type="string", length=255)
+     * @ORM\Column
      */
     private $username;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column
+     */
+    private $profilePicture;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $twitterPublicId;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $twitterSecretId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(nullable=true)
+     */
+    private $twitterScreenName;
 
 
     /**
@@ -45,6 +73,16 @@ class User implements UserInterface
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 
     /**
@@ -62,13 +100,13 @@ class User implements UserInterface
     }
 
     /**
-     * Get email
+     * Get username
      *
      * @return string
      */
-    public function getEmail()
+    public function getUsername()
     {
-        return $this->email;
+        return $this->username;
     }
 
     /**
@@ -86,13 +124,75 @@ class User implements UserInterface
     }
 
     /**
-     * Get username
-     *
      * @return string
      */
-    public function getUsername()
+    public function getProfilePicture()
     {
-        return $this->username;
+        return $this->profilePicture;
+    }
+
+    /**
+     * @param string $profilePicture
+     * @return User
+     */
+    public function setProfilePicture(string $profilePicture)
+    {
+        $this->profilePicture = $profilePicture;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTwitterPublicId()
+    {
+        return $this->twitterPublicId;
+    }
+
+    /**
+     * @param int $twitterPublicId
+     * @return User
+     */
+    public function setTwitterPublicId(int $twitterPublicId)
+    {
+        $this->twitterPublicId = $twitterPublicId;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTwitterSecretId()
+    {
+        return $this->twitterSecretId;
+    }
+
+    /**
+     * @param int $twitterSecretId
+     * @return User
+     */
+    public function setTwitterSecretId(int $twitterSecretId)
+    {
+        $this->twitterSecretId = $twitterSecretId;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTwitterScreenName()
+    {
+        return $this->twitterScreenName;
+    }
+
+    /**
+     * @param string $twitterScreenName
+     * @return User
+     */
+    public function setTwitterScreenName(string $twitterScreenName)
+    {
+        $this->twitterScreenName = $twitterScreenName;
+        return $this;
     }
 
     /**
