@@ -12,25 +12,27 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-- [Docker CE](https://www.docker.com/community-edition) 17.09 or newer
-- [Docker Compose](https://docs.docker.com/compose/install/) 1.16 or newer
-
+- PHP 7.1.4 or newer
 
 ### Installing
 
-1: Build Docker containers
+**1.** Build app
 
 ```
-docker-compose build
+composer install
 ```
 
-2: Build your app
+**2.** Update your SQLite database
 
 ```
-until finished
+php bin/console doctrine:schema:update --force
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+**3.** Launch app
+
+```
+php bin/console server:start
+```
 
 ## Deployment
 
