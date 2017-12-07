@@ -15,4 +15,4 @@ script:
   - php bin/console doctrine:schema:update --force
   - php bin/console doctrine:schema:validate
   - php bin/console about
-  - phpunit --version
+  - phpunit
