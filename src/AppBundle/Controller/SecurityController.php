@@ -3,14 +3,14 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Form\UserType;
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 class SecurityController extends Controller
 {
 
-    public function profileAction(Request $request, EntityManager $entityManager)
+    public function profileAction(Request $request, EntityManagerInterface $entityManager)
     {
         $user = $this->getUser();
         $form = $this->createForm(UserType::class, $user);
