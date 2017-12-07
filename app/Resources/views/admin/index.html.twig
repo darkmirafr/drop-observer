@@ -1,27 +1,24 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="section no-pad-bot" id="index-banner">
-        <div class="container">
-            <ul class="collapsible" data-collapsible="accordion">
-                <li>
-                    <div class="collapsible-header"><i class="material-icons">settings</i>Config</div>
-                    <div class="collapsible-body">
-                        <div class="row">
-                            {% include 'helper/config-form.html.twig' %}
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="collapsible-header"><i class="material-icons">flash_on</i>obServer</div>
-                    <div class="collapsible-body">
-                        <p>Radio Classique</p>
-                        <audio controls>
-                            <source src="http://radioclassique.ice.infomaniak.ch/radioclassique-high.mp3" type="audio/mpeg">
-                        </audio>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
+<div class="container">
+    <ul class="collapsible" data-collapsible="accordion">
+        <li>
+            <div class="collapsible-header"><i class="material-icons">settings</i>Config</div>
+            <div class="collapsible-body">
+                <div class="row">
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">flash_on</i>obServer</div>
+            <div class="collapsible-body">
+                <p>Radio Classique</p>
+                <audio controls>
+                    <source src="http://radioclassique.ice.infomaniak.ch/radioclassique-high.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </li>
+    </ul>
+</div>
 {% endblock %}

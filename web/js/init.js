@@ -19,5 +19,9 @@ $(function() {
         hover: false,
         belowOrigin: true
     });
-
+    $('.tooltipped').tooltip({delay: 50});
+    $('.flash-message').each(function( index ) {
+        Materialize.toast($( this ).text(), 4000, 'rounded');
+        console.log( index + ": " + $( this ).text() );
+    });
 });

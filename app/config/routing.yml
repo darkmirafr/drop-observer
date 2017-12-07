@@ -19,6 +19,10 @@ admin:
     path:     /admin
     defaults: { _controller: AppBundle:Admin:index }
 
+profile:
+    path:     /profile
+    defaults: { _controller: AppBundle:Security:profile }
+
 google_login:
     path: /login/check-google
 

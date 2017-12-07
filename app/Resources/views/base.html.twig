@@ -13,7 +13,10 @@
 </head>
 <body>
 {% include 'helper/nav.html.twig' %}
-{% block body %}{% endblock %}
+<div class="section no-pad-bot" id="index-banner">
+    {% block body %}
+    {% endblock %}
+</div>
 {% block javascripts %}
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
