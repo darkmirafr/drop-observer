@@ -9,15 +9,3 @@ body{
 blockquote {
     display: none;
 }
-
-.cursor-progress {
-    cursor: progress;
-}
-
-.cursor-cell {
-    cursor: cell;
-}
-
-.cursor-col-resize {
-    cursor: col-resize;
-}
