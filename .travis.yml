@@ -1,18 +1,12 @@
-language: php
-php:
-  - '7.1'
-  - nightly
+sudo: required
 
-env:
-  - SYMFONY_ENV=test
+services:
+    - docker
 
-matrix:
-  allow_failures:
-    - php: nightly
+before_install:
+    - docker-compose pull
+    - cp .env.test.dist .env
 
 script:
-  - composer install
-  - php bin/console doctrine:schema:update --force
-  - php bin/console doctrine:schema:validate
-  - php bin/console about
-  - phpunit
+    - docker -v
+    - docker-compose -v

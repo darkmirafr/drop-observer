@@ -16,28 +16,59 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-- PHP 7.1.4 or newer
+- [Docker CE](https://www.docker.com/community-edition)
 
-### Installing
+### Install
 
-**1.** Build app
-
-```
-composer install
-```
-
-**2.** Update your SQLite database
+**1.** Copy .env.dist to .env
 
 ```
-php bin/console doctrine:schema:update --force
+cp .env.dist .env
 ```
 
-**3.** Launch app
+**2.** Builds, (re)creates and starts containers in the background
 
 ```
-php bin/console server:start
+docker-compose up -d
+```
+
+**3.** Install dependencies
+
+```
+docker-compose exec web composer install
+```
+
+**4.** Update your SQLite database
+
+```
+docker-compose exec web php bin/console doctrine:schema:update --force
+```
+
+**5.** Done
+
+Web
+```
+http://localhost
+```
+
+phpMyAdmin
+```
+http://localhost:8080
 ```
 
 ## Deployment
 
-TODO
+### Prerequisites
+
+What things you need to install the software and how to install them
+
+- [PHP 7.1](http://php.net/downloads.php)
+- [MariaDB 10.2](https://mariadb.org/download/)
+
+### Install
+
+// TODO
+
+### Update
+
+// TODO
