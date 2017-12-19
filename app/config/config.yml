@@ -42,12 +42,7 @@ twig:
 # Doctrine Configuration
 doctrine:
     dbal:
-        driver: pdo_mysql
-        host: '%database_host%'
-        port: '%database_port%'
-        dbname: '%database_name%'
-        user: '%database_user%'
-        password: '%database_password%'
+        url: "%env(DATABASE_URL)%"
         charset: UTF8
 
     orm:
@@ -68,8 +63,8 @@ hwi_oauth:
     resource_owners:
         google:
             type:                google
-            client_id:           '%google_client_id%'
-            client_secret:       '%google_client_secret%'
+            client_id:           "%env(GOOGLE_CLIENT_ID)%"
+            client_secret:       "%env(GOOGLE_CLIENT_SECRET)%"
             scope:               "email profile"
             options:
                 csrf: true

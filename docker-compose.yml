@@ -3,7 +3,7 @@ version: '3'
 services:
 
   web:
-      image: webdevops/php-apache:7.2
+      image: webdevops/php-apache:7.1
       volumes:
           - ./:/app
       working_dir: /app
