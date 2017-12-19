@@ -4,8 +4,8 @@ services:
     - docker
 
 before_install:
-    - docker-compose pull
     - cp .env.test.dist .env
+    - docker-compose pull
 
 script:
     - docker -v
