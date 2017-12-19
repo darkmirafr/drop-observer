@@ -38,7 +38,7 @@ docker-compose up -d
 docker-compose exec web composer install
 ```
 
-**4.** Update your SQLite database
+**4.** Update your MariaDB database schema
 
 ```
 docker-compose exec web php bin/console doctrine:schema:update --force
