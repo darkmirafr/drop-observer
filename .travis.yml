@@ -5,11 +5,11 @@ services:
 
 before_install:
     - cp .env.dist .env
-    - docker-compose up -d
-    - docker-compose exec web composer install --no-interaction
-    - docker-compose exec web php bin/console doctrine:schema:update --force
+    - docker-compose pull
+    - docker-compose run --rm -e SYMFONY_ENV=test web composer install --no-interaction
+    - docker-compose run --rm -e SYMFONY_ENV=test web php bin/console doctrine:schema:update --force
 
 script:
-    - docker-compose exec web php bin/console doctrine:schema:validate --skip-sync
-    - docker-compose exec web php bin/console about
-    - docker-compose exec web vendor/bin/phpunit
+    - docker-compose run --rm -e SYMFONY_ENV=test web php bin/console doctrine:schema:validate --skip-sync
+    - docker-compose run --rm -e SYMFONY_ENV=test web php bin/console about
+    - docker-compose run --rm -e SYMFONY_ENV=test web vendor/bin/phpunit
