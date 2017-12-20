@@ -10,6 +10,6 @@ before_install:
     - docker-compose exec web php bin/console doctrine:schema:update --force
 
 script:
-    - docker-compose exec php bin/console doctrine:schema:validate
-    - docker-compose exec php bin/console about
-    - docker-compose exec phpunit
+    - docker-compose exec web php bin/console doctrine:schema:validate
+    - docker-compose exec web php bin/console about
+    - docker-compose exec web phpunit
