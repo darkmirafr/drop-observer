@@ -30,7 +30,6 @@ class UserProvider implements OAuthAwareUserProviderInterface
             $user->setProfilePicture($response->getProfilePicture());
             $this->em->persist($user);
             $this->em->flush();
-            return $user;
         }
 
         return $user;

@@ -12,4 +12,4 @@ before_install:
 script:
     - docker-compose exec web php bin/console doctrine:schema:validate --skip-sync
     - docker-compose exec web php bin/console about
-    - docker-compose exec web phpunit
+    - docker-compose exec web vendor/bin/phpunit
