@@ -43,7 +43,10 @@ twig:
 doctrine:
     dbal:
         url: "%env(DATABASE_URL)%"
-        charset: UTF8
+        charset: utf8mb4
+        default_table_options:
+            charset: utf8mb4
+            collate: utf8mb4_unicode_ci
 
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
