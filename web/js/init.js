@@ -21,7 +21,7 @@ $(function() {
     });
     $('.tooltipped').tooltip({delay: 50});
     $('.flash-message').each(function( index ) {
-        Materialize.toast($( this ).text(), 4000, 'rounded');
+        Materialize.toast($( this ).text(), 4000);
         console.log( index + ": " + $( this ).text() );
     });
 });

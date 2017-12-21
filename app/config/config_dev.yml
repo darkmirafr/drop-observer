@@ -39,7 +39,3 @@ monolog:
 
 #swiftmailer:
 #    delivery_addresses: ['me@example.com']
-
-hwi_oauth:
-    http_client:
-        verify_peer: false
