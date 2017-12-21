@@ -12,6 +12,10 @@
         <server name="KERNEL_CLASS" value="AppKernel" />
     </php>
 
+    <logging>
+        <log type="coverage-clover" target="clover.xml"/>
+    </logging>
+
     <testsuites>
         <testsuite name="Project Test Suite">
             <directory>tests</directory>
