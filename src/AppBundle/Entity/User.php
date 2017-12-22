@@ -44,16 +44,16 @@ class User implements UserInterface
     private $profilePicture;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(nullable=true)
      */
     private $twitterPublicId;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(nullable=true)
      */
     private $twitterSecretId;
 
@@ -142,7 +142,7 @@ class User implements UserInterface
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getTwitterPublicId()
     {
@@ -150,17 +150,17 @@ class User implements UserInterface
     }
 
     /**
-     * @param int $twitterPublicId
+     * @param string $twitterPublicId
      * @return User
      */
-    public function setTwitterPublicId(int $twitterPublicId)
+    public function setTwitterPublicId(string $twitterPublicId)
     {
         $this->twitterPublicId = $twitterPublicId;
         return $this;
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getTwitterSecretId()
     {
@@ -168,10 +168,10 @@ class User implements UserInterface
     }
 
     /**
-     * @param int $twitterSecretId
+     * @param string $twitterSecretId
      * @return User
      */
-    public function setTwitterSecretId(int $twitterSecretId)
+    public function setTwitterSecretId(string $twitterSecretId)
     {
         $this->twitterSecretId = $twitterSecretId;
         return $this;

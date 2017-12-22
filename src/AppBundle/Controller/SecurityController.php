@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class SecurityController extends Controller
 {
-
     public function profileAction(Request $request, EntityManagerInterface $entityManager)
     {
         $user = $this->getUser();

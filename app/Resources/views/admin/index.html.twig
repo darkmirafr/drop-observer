@@ -2,17 +2,34 @@
 
 {% block body %}
 <div class="container">
+
+    <div class="row">
+
+    </div>
+
     <div class="col s12 m8 offset-m2 l6 offset-l3">
-        <div class="card-panel grey lighten-5 z-depth-1">
-            <div class="row valign-wrapper">
-                <div class="col s9">
-                    <marquee>{{ joke|escape }}</marquee>
+            {% for tweet in tweets %}
+            <div class="card-panel grey lighten-5 z-depth-1">
+                <div class="row valign-wrapper">
+                    <div class="col s2">
+                        <img src="{{ tweet.user.profile_image_url }}" alt="" class="circle responsive-img">
+                    </div>
+                    <div class="col s10">
+                        <p class="center">{{ tweet.text }}</p>
+                    </div>
                 </div>
-                <div class="col s3">
-                    <img src="https://s3.amazonaws.com/mf-cnorris/assets/uploads/2016/10/19123509/timeline-05.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+            </div>
+            {% endfor %}
+            <div class="card-panel grey lighten-5 z-depth-1">
+                <div class="row valign-wrapper">
+                    <div class="col s2">
+                        <img src="https://s3.amazonaws.com/mf-cnorris/assets/uploads/2016/10/19123509/timeline-05.jpg" alt="" class="circle responsive-img">
+                    </div>
+                    <div class="col s10">
+                        <p class="center">{{ joke|escape }}</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </div>
 {% endblock %}

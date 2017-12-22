@@ -27,7 +27,8 @@
         "twig/twig": "^2.4",
         "hwi/oauth-bundle": "^0.6",
         "php-http/httplug-bundle": "^1.8",
-        "php-http/guzzle6-adapter": "^1.1"
+        "php-http/guzzle6-adapter": "^1.1",
+        "abraham/twitteroauth": "^0.7"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.1",
