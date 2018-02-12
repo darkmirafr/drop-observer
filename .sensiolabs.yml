@@ -1,3 +1,0 @@
-rules:
-    symfony.application_not_bootable:
-        enabled: false
