@@ -1,9 +1,9 @@
-version: '3'
+version: "3"
 
 services:
 
   web:
-      image: webdevops/php-apache-dev:7.1
+      image: webdevops/php-nginx:7.1
       volumes:
           - ./:/app
       working_dir: /app
@@ -11,8 +11,8 @@ services:
       ports:
           - "80:80"
       environment:
-          WEB_DOCUMENT_ROOT: /app/web
-          WEB_DOCUMENT_INDEX: app.php
+          WEB_DOCUMENT_ROOT: /app/public
+          WEB_DOCUMENT_INDEX: index.php
           PHP_DATE_TIMEZONE: "Europe/Paris"
           PHP_DISPLAY_ERRORS: 1
 
