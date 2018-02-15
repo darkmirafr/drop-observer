@@ -1,0 +1,12 @@
+sudo: required
+
+services:
+    - docker
+
+before_install:
+    - cp .env.dist .env
+    - docker-compose up -d
+    - docker-compose exec web composer install --no-interaction
+
+script:
+    - docker-compose exec web php bin/console about
