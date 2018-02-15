@@ -1,3 +1,18 @@
 index:
     path: /
     controller: App\Controller\DefaultController::index
+
+about:
+    path: /about
+    controller: App\Controller\DefaultController::about
+
+login:
+    path: /login
+    controller: App\Controller\DefaultController::login
+
+admin:
+    path: /admin
+    controller: App\Controller\DefaultController::admin
+
+logout:
+    path: /logout
