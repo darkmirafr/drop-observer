@@ -1,4 +1,6 @@
 {
+    "name": "darkmira/drop-observer",
+    "description": "The project repository",
     "type": "project",
     "license": "proprietary",
     "require": {
