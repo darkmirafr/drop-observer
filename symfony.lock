@@ -1,4 +1,10 @@
 {
+    "codacy/coverage": {
+        "version": "1.4.1"
+    },
+    "gitonomy/gitlib": {
+        "version": "v1.0.3"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
