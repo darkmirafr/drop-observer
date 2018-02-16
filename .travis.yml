@@ -1,5 +1,7 @@
 sudo: required
 
+language: php
+
 services:
     - docker
 
@@ -12,4 +14,4 @@ script:
     - docker-compose exec web php bin/phpunit --coverage-clover build/coverage/xml
 
 after_script:
-    - docker-compose exec -e CODACY_PROJECT_TOKEN=$CODACY_PROJECT_TOKEN web php vendor/bin/codacycoverage clover build/coverage/xml
+    - php vendor/bin/codacycoverage clover build/coverage/xml
