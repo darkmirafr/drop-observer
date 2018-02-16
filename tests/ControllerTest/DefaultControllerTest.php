@@ -6,30 +6,21 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class DefaultControllerTest extends WebTestCase
 {
-    public function testShowHome()
+    /**
+     * @dataProvider urlProvider
+     */
+    public function testPageIsSuccessful($url)
     {
-        $client = static::createClient();
+        $client = self::createClient();
+        $client->request('GET', $url);
 
-        $client->request('GET', '/');
-
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertTrue($client->getResponse()->isSuccessful());
     }
 
-    public function testShowHelp()
+    public function urlProvider()
     {
-        $client = static::createClient();
-
-        $client->request('GET', '/about');
-
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
-    }
-
-    public function testShowLogin()
-    {
-        $client = static::createClient();
-
-        $client->request('GET', '/login');
-
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        yield ['/'];
+        yield ['/about'];
+        yield ['/login'];
     }
 }
