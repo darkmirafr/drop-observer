@@ -10,9 +10,9 @@ login:
     path: /login
     controller: App\Controller\DefaultController::login
 
-admin:
-    path: /admin
-    controller: App\Controller\DefaultController::admin
+#admin:
+#    path: /admin
+#    controller: App\Controller\DefaultController::admin
 
 logout:
     path: /logout
