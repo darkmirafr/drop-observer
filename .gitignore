@@ -13,3 +13,6 @@
 .phpunit
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
+
+docker-compose.override.yml
+/docker/database

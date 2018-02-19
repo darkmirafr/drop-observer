@@ -3,13 +3,11 @@ version: "3"
 services:
 
   web:
-      image: webdevops/php-nginx:7.1
+      image: webdevops/php-nginx-dev:7.1
       volumes:
           - ./:/app
       working_dir: /app
       env_file: .env
-      ports:
-          - "80:80"
       environment:
           WEB_DOCUMENT_ROOT: /app/public
           WEB_DOCUMENT_INDEX: index.php
@@ -29,5 +27,3 @@ services:
       environment:
           MYSQL_ROOT_PASSWORD: root
           PMA_HOST: database
-      ports:
-          - "8080:80"

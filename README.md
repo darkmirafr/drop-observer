@@ -24,25 +24,31 @@ What things you need to install the software and how to install them
 
 ### Install
 
-**1.** Copy .env.dist to .env
+**1.** Copy `.env.dist` to `.env`
 
 ```
 cp .env.dist .env
 ```
 
-**2.** Builds, (re)creates and starts containers in the background
+**2.** Copy `docker-compose.override.yml.dist` to `docker-compose.override.yml`
+
+```
+cp docker-compose.override.yml.dist docker-compose.override.yml
+```
+
+**3.** Builds, (re)creates and starts containers in the background
 
 ```
 docker-compose up -d
 ```
 
-**3.** Install dependencies
+**4.** Install dependencies
 
 ```
 docker-compose exec --user=application web composer install
 ```
 
-**4.** Done
+**5.** Done
 
 Web
 ```

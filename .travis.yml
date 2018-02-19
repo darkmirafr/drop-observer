@@ -7,6 +7,7 @@ services:
 
 before_install:
     - cp .env.dist .env
+    - cp docker-compose.override.yml.dist docker-compose.override.yml
     - docker-compose up -d
     - docker-compose exec web composer install --no-interaction
 
@@ -14,4 +15,4 @@ script:
     - docker-compose exec web php bin/phpunit --coverage-clover build/coverage/xml
 
 after_script:
-    - php vendor/bin/codacycoverage clover build/coverage/xml
+    - docker-compose exec web php vendor/bin/codacycoverage clover build/coverage/xml
