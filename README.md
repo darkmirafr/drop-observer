@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/Darkmira/drop-observer.svg?branch=develop)](https://travis-ci.org/Darkmira/drop-observer)
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/3ce7e103844f4d59b7467946f8c83f9b)](https://www.codacy.com/app/cvilleger/drop-observer?utm_source=github.com&utm_medium=referral&utm_content=Darkmira/drop-observer&utm_campaign=Badge_Coverage)
 [![Dependency Status](https://beta.gemnasium.com/badges/github.com/Darkmira/drop-observer.svg)](https://beta.gemnasium.com/projects/github.com/Darkmira/drop-observer)
-![Heroku](https://heroku-badge.herokuapp.com/?app=drop-observer&style=flat&svg=1)
+[![Heroku](https://heroku-badge.herokuapp.com/?app=drop-observer&style=flat&svg=1)](https://drop-observer.herokuapp.com/)
   
 ![Generic badge](https://img.shields.io/badge/Powered%20by-Love-red.svg)
 ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
