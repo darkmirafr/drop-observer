@@ -6,8 +6,6 @@
   
 ![Generic badge](https://img.shields.io/badge/Powered%20by-Love-red.svg)
 ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
-  
-![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)
 
 # DROP obServer 
 DROP obServer project is part of the DROP project.
@@ -48,7 +46,15 @@ docker-compose up -d
 docker-compose exec --user=application web composer install
 ```
 
-**5.** Done
+**5.** Drop, create and update your database
+
+```
+docker-compose exec web php bin/console doctrine:database:drop --force
+docker-compose exec web php bin/console doctrine:database:create
+docker-compose exec web php bin/console doctrine:schema:update --force
+```
+
+**6.** Done
 
 Web
 ```
