@@ -10,9 +10,9 @@ class DefaultController extends AbstractController
         return $this->render('default/index.html.twig');
     }
 
-    public function about()
+    public function admin()
     {
-        return $this->render('default/about.html.twig');
+        return $this->render('default/admin.html.twig');
     }
 
     public function login()

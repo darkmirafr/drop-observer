@@ -23,11 +23,3 @@ services:
       environment:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: mydatabase
-
-  phpmyadmin:
-      image: phpmyadmin/phpmyadmin
-      depends_on:
-          - database
-      environment:
-          MYSQL_ROOT_PASSWORD: root
-          PMA_HOST: database
