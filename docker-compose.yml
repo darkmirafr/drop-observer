@@ -8,6 +8,8 @@ services:
           - ./:/app
       working_dir: /app
       env_file: .env
+      depends_on:
+          - database
       environment:
           WEB_DOCUMENT_ROOT: /app/public
           WEB_DOCUMENT_INDEX: index.php
@@ -15,15 +17,9 @@ services:
           PHP_DISPLAY_ERRORS: 1
 
   database:
-      image: mariadb:10.2
+      image: percona:5.7
       volumes:
           - ./docker/database:/etc/mysql/conf.d
       environment:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: mydatabase
-
-  phpmyadmin:
-      image: phpmyadmin/phpmyadmin
-      environment:
-          MYSQL_ROOT_PASSWORD: root
-          PMA_HOST: database

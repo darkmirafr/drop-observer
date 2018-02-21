@@ -1,5 +1,10 @@
 sudo: required
 
+language: php
+
+php:
+    - nightly
+
 services:
     - docker
 
@@ -8,9 +13,13 @@ before_install:
     - cp docker-compose.override.yml.dist docker-compose.override.yml
     - docker-compose up -d
     - docker-compose exec web composer install --no-interaction
+    - docker-compose exec web php bin/console doctrine:database:drop --force
+    - docker-compose exec web php bin/console doctrine:database:create
+    - docker-compose exec web php bin/console doctrine:schema:update --force
+    - docker-compose exec web php bin/console doctrine:schema:validate
 
 script:
-    - docker-compose exec web php bin/phpunit --coverage-clover coverage.xml
+    - docker-compose exec web php bin/phpunit --coverage-clover build/coverage/xml
 
 after_script:
-    - docker-compose exec web php vendor/bin/codacycoverage clover coverage.xml
+    - php vendor/bin/codacycoverage clover build/coverage/xml
