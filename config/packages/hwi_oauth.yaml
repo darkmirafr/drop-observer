@@ -22,8 +22,8 @@ hwi_oauth:
     resource_owners:
         google:
             type:                google
-            client_id:           <client_id>
-            client_secret:       <client_secret>
+            client_id:           '%env(GOOGLE_CLIENT_ID)%'
+            client_secret:       '%env(GOOGLE_CLIENT_SECRET)%'
             scope:               "email profile"
             options:
                 csrf: true
