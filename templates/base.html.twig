@@ -10,6 +10,13 @@
         <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114824295-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-114824295-1');
+    </script>
 </head>
 <body>
 {% include 'helper/nav.html.twig' %}
