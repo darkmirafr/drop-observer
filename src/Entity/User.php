@@ -87,7 +87,6 @@ class User implements UserInterface ,UserProviderInterface, AccountConnectorInte
      */
     public function loadUserByUsername($username)
     {
-        // TODO: Implement loadUserByUsername() method.
     }
 
     /**
@@ -104,7 +103,6 @@ class User implements UserInterface ,UserProviderInterface, AccountConnectorInte
      */
     public function refreshUser(UserInterface $user)
     {
-        // TODO: Implement refreshUser() method.
     }
 
     /**
@@ -116,7 +114,6 @@ class User implements UserInterface ,UserProviderInterface, AccountConnectorInte
      */
     public function supportsClass($class)
     {
-        // TODO: Implement supportsClass() method.
     }
 
     /**
@@ -127,7 +124,6 @@ class User implements UserInterface ,UserProviderInterface, AccountConnectorInte
      */
     public function connect(UserInterface $user, UserResponseInterface $response)
     {
-        // TODO: Implement connect() method.
     }
 
     /**
@@ -141,6 +137,5 @@ class User implements UserInterface ,UserProviderInterface, AccountConnectorInte
      */
     public function loadUserByOAuthUserResponse(UserResponseInterface $response)
     {
-        // TODO: Implement loadUserByOAuthUserResponse() method.
     }
 }
