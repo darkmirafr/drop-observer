@@ -2,13 +2,24 @@ index:
     path: /
     controller: App\Controller\DefaultController::index
 
-login:
-    path: /login
-    controller: App\Controller\DefaultController::login
-
 #admin:
 #    path: /admin
 #    controller: App\Controller\DefaultController::admin
 
 logout:
     path: /logout
+
+google_login:
+    path: /login/check-google
+
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /connect
+
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+    prefix:   /connect
+
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /login

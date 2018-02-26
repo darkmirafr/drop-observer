@@ -20,6 +20,5 @@ class DefaultControllerTest extends WebTestCase
     public function urlProvider()
     {
         yield ['/'];
-        yield ['/login'];
     }
 }

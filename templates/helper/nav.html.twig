@@ -1,7 +1,7 @@
 <nav class="nav bg-secondary nav-pills">
     <a class="nav-item nav-link text-white {% if 'index' == app.request.attributes.get('_route') %}active{% endif %}" href="{{ path('index') }}"><i class="ion-home"></i> Home</a>
     {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
-        <a class="nav-item nav-link text-white {% if 'login' == app.request.attributes.get('_route') %}active{% endif %}" href="{{ path('login') }}"><i class="ion-social-google"></i> Connect</a>
+        <a class="nav-item nav-link text-white" href="{{ path('hwi_oauth_service_redirect', {'service': 'google'}) }}"><i class="ion-social-google"></i> Connect</a>
     {% else %}
         <a class="nav-item nav-link text-white {% if 'admin' == app.request.attributes.get('_route') %}active{% endif %}" href="#"><i class="ion-ios-settings-strong"></i> Admin</a>
         <a class="nav-item nav-link text-white {% if 'logout' == app.request.attributes.get('_route') %}active{% endif %}" href="{{ path('logout') }}"><i class="ion-log-out"></i> Logout</a>
