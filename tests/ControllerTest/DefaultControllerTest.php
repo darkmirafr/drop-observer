@@ -2,6 +2,7 @@
 
 namespace App\ControllerTest;
 
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class DefaultControllerTest extends WebTestCase
@@ -20,5 +21,11 @@ class DefaultControllerTest extends WebTestCase
     public function urlProvider()
     {
         yield ['/'];
+        yield ['/admin'];
+    }
+
+    public function userIsRoleUser()
+    {
+        $this->assertSame('ROLE_USER', (new User)->getRoles()[0]);
     }
 }
