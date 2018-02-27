@@ -4,10 +4,14 @@ security:
             algorithm: bcrypt
     providers:
         in_memory: { memory: ~ }
+        user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
 
     firewalls:
         main:
-            anonymous: true
+            anonymous: ~
         secured_area:
             anonymous: ~
             oauth:
@@ -16,9 +20,12 @@ security:
                 login_path:        /login/check-google
                 use_forward:       false
                 failure_path:      /
-
+                provider: user_provider
                 oauth_user_provider:
-                    service: hwi_oauth.user.provider
+                    service: my.oauth_aware.user_provider.service
+            logout:
+                path:   /logout
+                target: /
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
@@ -28,4 +35,4 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
