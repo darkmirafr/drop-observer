@@ -2,5 +2,19 @@
   "name": "Darkmira/drop-observer",
   "description": "DROP | obServer project repository",
   "repository": "https://github.com/Darkmira/drop-observer",
-  "success_url": "/"
+  "success_url": "/",
+  "env": {
+      "APP_ENV": {
+          "required": true
+      },
+      "DATABASE_URL": {
+          "required": true
+      },
+      "GOOGLE_CLIENT_ID": {
+          "required": true
+      },
+      "GOOGLE_CLIENT_SECRET": {
+          "required": true
+      }
+  }
 }
