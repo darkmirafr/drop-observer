@@ -6,7 +6,7 @@
 [![Heroku](https://heroku-badge.herokuapp.com/?app=drop-observer&style=flat&svg=1)](https://drop-observer.herokuapp.com/)
 
 [![Docker Build Status](https://img.shields.io/docker/build/cvilleger/drop-observer.svg)](https://hub.docker.com/r/cvilleger/drop-observer/)
-[![MicroBadger Size](https://img.shields.io/microbadger/image-size/cvilleger/drop-observer.svg)](https://hub.docker.com/r/cvilleger/drop-observer/)
+[![](https://images.microbadger.com/badges/image/cvilleger/drop-observer.svg)](https://microbadger.com/images/cvilleger/drop-observer "Get your own image badge on microbadger.com")
 
 [![Generic badge](https://img.shields.io/badge/Powered%20by-Love-red.svg)](https://www.darkmira.fr/)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/Darkmira/drop-observer/pulse/monthly)
