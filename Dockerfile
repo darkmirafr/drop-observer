@@ -15,5 +15,4 @@ ENV APP_ENV=prod
 RUN composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction --no-progress
 
 RUN rm -rf var/cache/*
-RUN bin/console cache:warmup -e prod
 RUN chown -R application. var/

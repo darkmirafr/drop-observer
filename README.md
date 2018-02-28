@@ -6,6 +6,7 @@
 [![Heroku](https://heroku-badge.herokuapp.com/?app=drop-observer&style=flat&svg=1)](https://drop-observer.herokuapp.com/)
 
 [![Docker Build Status](https://img.shields.io/docker/build/cvilleger/drop-observer.svg)](https://hub.docker.com/r/cvilleger/drop-observer/)
+[![ImageLayers Size](https://img.shields.io/imagelayers/image-size/cvilleger/drop-observer/latest.svg)](https://hub.docker.com/r/cvilleger/drop-observer/)
 
 ![Generic badge](https://img.shields.io/badge/Powered%20by-Love-red.svg)
 ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
