@@ -1,4 +1,4 @@
-FROM webdevops/php-nginx:7.2
+FROM webdevops/php-nginx:alpine
 
 WORKDIR /app
 
