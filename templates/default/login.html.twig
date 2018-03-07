@@ -1,8 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
-        <h1>Login</h1>
+    <video id="bgvid" playsinline autoplay muted loop>
+        <source src="https://res.cloudinary.com/cvilleger/video/upload/ac_none,q_60/v1519688293/loop_k4i8g4.mp4" type="video/mp4">
+    </video>
+    <div class="container mt-3 form-control" style="opacity: 0.9">
+        <form>
+            <div class="form-group">
+                <label for="inputEmail1">Email</label>
+                <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword1">Password</label>
+                <input style="opacity: 0.8" type="password" class="form-control" id="inputPassword1" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+        </form>
     </div>
 {% endblock %}
-
