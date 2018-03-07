@@ -9,6 +9,7 @@ services:
     - docker
 
 before_install:
+    - docker-compose config -q
     - cp .env.dist .env
     - docker-compose up -d
     - docker-compose exec web composer install --no-interaction --prefer-dist --optimize-autoloader
