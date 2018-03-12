@@ -15,7 +15,7 @@ class User implements UserInterface
      *
      * @ORM\Column(type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue
      */
     private $id;
 
@@ -31,22 +31,47 @@ class User implements UserInterface
      *
      * @ORM\Column
      */
-    private $username;
-
+    private $password;
 
     public function getId(): int
     {
         return $this->id;
     }
 
-    public function getEmail(): string
+    /**
+     * @return string
+     */
+    public function getEmail(): ?string
     {
         return $this->email;
     }
 
-    public function getUsername(): string
+    /**
+     * @param string $email
+     * @return User
+     */
+    public function setEmail(string $email): User
     {
-        return $this->username;
+        $this->email = $email;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param string $password
+     * @return User
+     */
+    public function setPassword(string $password): User
+    {
+        $this->password = $password;
+        return $this;
     }
 
     public function getRoles(): array
@@ -63,7 +88,8 @@ class User implements UserInterface
     {
     }
 
-    public function getPassword(): void
+    public function getUsername(): string
     {
+        return $this->email;
     }
 }

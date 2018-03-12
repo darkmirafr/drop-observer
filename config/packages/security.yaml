@@ -2,9 +2,10 @@ security:
     encoders:
         App\Entity\User:
             algorithm: bcrypt
+
     providers:
         in_memory: { memory: ~ }
-        our_db_provider:
+        db_provider:
             entity:
                 class: App\Entity\User
                 property: email
@@ -15,18 +16,14 @@ security:
             security: false
         main:
             anonymous: true
-
-            # activate different ways to authenticate
-
-            # http_basic: true
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-
-            # form_login: true
-            # https://symfony.com/doc/current/security/form_login_setup.html
+            provider: db_provider
+            form_login:
+                login_path: login
+                check_path: login
+                username_parameter: "user[email]"
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-          - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/admin, roles: ROLE_USER }
