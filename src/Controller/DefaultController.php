@@ -13,7 +13,7 @@ class DefaultController extends AbstractController
         return $this->render('default/index.html.twig');
     }
 
-    public function login(Request $request)
+    public function login()
     {
 
         $user = new User();
