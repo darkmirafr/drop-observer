@@ -25,7 +25,7 @@
     </php>
 
     <testsuites>
-        <testsuite name="Project Test Suite">
+        <testsuite name="Project Drop obServer">
             <directory>tests/</directory>
         </testsuite>
     </testsuites>
