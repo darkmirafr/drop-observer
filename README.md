@@ -5,6 +5,11 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/3ce7e103844f4d59b7467946f8c83f9b)](https://www.codacy.com/app/cvilleger/drop-observer?utm_source=github.com&utm_medium=referral&utm_content=Darkmira/drop-observer&utm_campaign=Badge_Coverage)
 [![Dependency Status](https://beta.gemnasium.com/badges/github.com/Darkmira/drop-observer.svg)](https://beta.gemnasium.com/projects/github.com/Darkmira/drop-observer)
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Darkmira/drop-observer/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/Darkmira/drop-observer/?branch=develop)
+[![Build Status](https://scrutinizer-ci.com/g/Darkmira/drop-observer/badges/build.png?b=develop)](https://scrutinizer-ci.com/g/Darkmira/drop-observer/build-status/develop)
+[![Code Coverage](https://scrutinizer-ci.com/g/Darkmira/drop-observer/badges/coverage.png?b=develop)](https://scrutinizer-ci.com/g/Darkmira/drop-observer/?branch=develop)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/Darkmira/drop-observer/badges/code-intelligence.svg?b=develop)](https://scrutinizer-ci.com/code-intelligence)
+
 [![](https://images.microbadger.com/badges/image/cvilleger/drop-observer.svg)](https://microbadger.com/images/cvilleger/drop-observer "Get your own image badge on microbadger.com")
 [![Heroku](https://heroku-badge.herokuapp.com/?app=drop-observer&style=flat&svg=1)](https://drop-observer.herokuapp.com/)
 [![Generic badge](https://img.shields.io/badge/Powered%20by-Love-red.svg)](https://www.darkmira.fr/)
