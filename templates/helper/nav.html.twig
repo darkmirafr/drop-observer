@@ -1,9 +1,9 @@
-<nav class="nav bg-secondary nav-pills">
-    <a class="nav-item nav-link text-white {% if 'index' == app.request.attributes.get('_route') %}active{% endif %}" href="{{ path('index') }}"><i class="ion-home"></i> Home</a>
+<nav class="nav nav-pills">
+    <a class="nav-link text-white {% if 'index' == app.request.attributes.get('_route') %}active{% endif %}" href="{{ path('index') }}"><i class="ion-home"></i> Home</a>
     {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
-        <a class="nav-item nav-link text-white {% if 'login' == app.request.attributes.get('_route') %}active{% endif %}" href="{{ path('login') }}"><i class="ion-log-in"></i> Login</a>
+        <a class="nav-link text-white {% if 'login' == app.request.attributes.get('_route') %}active{% endif %}" href="{{ path('login') }}"><i class="ion-log-in"></i> Login</a>
     {% else %}
-        <a class="nav-item nav-link text-white {% if 'admin' == app.request.attributes.get('_route') %}active{% endif %}" href="#"><i class="ion-ios-settings-strong"></i> Admin</a>
-        <a class="nav-item nav-link text-white" href="{{ path('logout') }}"><i class="ion-log-out"></i> Logout</a>
+        <a class="nav-link text-white {% if 'admin' == app.request.attributes.get('_route') %}active{% endif %}" href="#"><i class="ion-ios-settings-strong"></i> Admin</a>
+        <a class="nav-link text-white" href="{{ path('logout') }}"><i class="ion-log-out"></i> Logout</a>
     {% endif %}
 </nav>
