@@ -8,7 +8,6 @@ security:
         db_provider:
             entity:
                 class: App\Entity\User
-                property: email
 
     firewalls:
         dev:
@@ -19,7 +18,7 @@ security:
             provider: db_provider
             form_login:
                 login_path: login
-                check_path: login
+                check_path: login_check
                 username_parameter: "user[email]"
 
     # Easy way to control access for large sections of your site
