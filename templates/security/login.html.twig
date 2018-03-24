@@ -5,6 +5,9 @@
         <source src="https://res.cloudinary.com/cvilleger/video/upload/ac_none,q_60/v1519688293/loop_k4i8g4.mp4" type="video/mp4">
     </video>
     <div class="container mt-3 form-control" style="opacity: 0.85">
+        {% if error %}
+            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
         {{ form_start(form) }}
             {{ form_errors(form) }}
             <div class="form-group">

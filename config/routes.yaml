@@ -2,13 +2,10 @@ index:
     path: /
     controller: App\Controller\DefaultController::index
 
-login:
-    path: /login
-    controller: App\Controller\DefaultController::login
-
 admin:
     path: /admin
     controller: App\Controller\DefaultController::admin
 
-logout:
-    path: /logout
+login:
+    path: /login
+    controller: App\Controller\SecurityController::login
