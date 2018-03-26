@@ -65,6 +65,9 @@
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
+    "nikic/php-parser": {
+        "version": "v4.0.0"
+    },
     "ocramius/package-versions": {
         "version": "1.3.0"
     },

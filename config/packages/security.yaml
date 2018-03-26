@@ -20,3 +20,6 @@ security:
                 check_path: login
                 username_parameter: user[email]
                 password_parameter: user[password]
+            logout:
+                path: /logout
+                target: /
