@@ -20,3 +20,7 @@ video {
     margin: 2rem;
     font-size: 1.2rem;
 }
+
+.list-group-item {
+    background: rgba(0,0,0,0.5);
+}
