@@ -62,7 +62,13 @@ docker-compose exec web php bin/console doctrine:database:create
 docker-compose exec web php bin/console doctrine:schema:update --force
 ```
 
-**6.** Done
+**6.** Create your first user
+
+```
+docker-compose exec --user=application web docker-compose exec web php bin/console app:create-user <your@email.com> <password>
+```
+
+**7.** Done
 
 Web
 ```
