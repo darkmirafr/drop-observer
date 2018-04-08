@@ -2,4 +2,8 @@ language: php
 
 php:
   - 7.1
-  - 7.2
+
+build:
+  ci:
+    - composer install
+    - phpunit
