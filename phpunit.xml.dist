@@ -22,6 +22,12 @@
         <!-- Configure your db driver and server_version in config/packages/doctrine.yaml -->
         <env name="DATABASE_URL" value="mysql://root:root@database:3306/mydatabase"/>
         <!-- ###- doctrine/doctrine-bundle ### -->
+
+        <!-- ###+ google/apiclient ### -->
+        <env name="GOOGLE_API_KEY" value=""/>
+        <env name="GOOGLE_CLIENT_ID" value=""/>
+        <env name="GOOGLE_CLIENT_SECRET" value=""/>
+        <!-- ###- google/apiclient ### -->
     </php>
 
     <testsuites>

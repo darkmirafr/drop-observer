@@ -12,6 +12,6 @@ class DefaultController extends AbstractController
 
     public function admin()
     {
-        return $this->render('default/admin.html.twig');
+        return $this->render('admin/index.html.twig');
     }
 }

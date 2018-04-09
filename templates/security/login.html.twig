@@ -1,12 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <video id="bgvid" playsinline autoplay muted loop>
-        <source src="https://res.cloudinary.com/cvilleger/video/upload/ac_none,q_60/v1519688293/loop_k4i8g4.mp4" type="video/mp4">
-    </video>
-    <div class="container mt-3 form-control" style="opacity: 0.85">
+    <div class="container mt-3 form-control">
         {% if error %}
-            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 {{ error.messageKey|trans(error.messageData, 'security') }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
