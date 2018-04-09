@@ -20,5 +20,4 @@ class SecurityController extends Controller
             'error' => $authenticationUtils->getLastAuthenticationError(),
         ]);
     }
-
 }

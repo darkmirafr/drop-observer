@@ -6,4 +6,4 @@ php:
 build:
   ci:
     - composer install
-    - phpunit --coverage-xml shippable/testresults/clover.xml
+    - phpunit --coverage-xml shippable/testresults/coverage.xml --log-junit shippable/testresults/log.xml
