@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\Type\UserType;
+use App\Service\GoogleService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
@@ -13,11 +14,11 @@ class SecurityController extends Controller
     {
         $user = new User;
         $form = $this->createForm(UserType::class, $user);
-
         return $this->render('security/login.html.twig', [
             'form' => $form->createView(),
             'last_email' => $authenticationUtils->getLastUsername(),
             'error' => $authenticationUtils->getLastAuthenticationError(),
+            'google_redirect_uri' => $this->get(GoogleService::class)->getRedirectUri(),
         ]);
     }
 }
