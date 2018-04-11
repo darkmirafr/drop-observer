@@ -30,7 +30,7 @@ class SecurityController extends Controller
     }
 
     /**
-     * Handle Google Login check
+     * WIP: Handle Google Login check
      *
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
@@ -41,7 +41,10 @@ class SecurityController extends Controller
             return $this->redirectToRoute('login');
         }
 
-        $this->get(GoogleService::class)->authUser($request->get('code'));
+        $googleUser = $this->get(GoogleService::class)->fetchUserByCode($request->get('code'));
+
+        $this->addFlash('warning', 'Google auth is work in progress, stay tuned ' . $googleUser['name']);
+
         return $this->redirectToRoute('index');
     }
 }
