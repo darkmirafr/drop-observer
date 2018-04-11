@@ -1,20 +1,18 @@
 <?php
 namespace App\Service;
 
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class GoogleService
 {
     private $googleClient;
-    private $session;
 
-    public function __construct(\Google_Client $googleClient, SessionInterface $session)
+    public function __construct(\Google_Client $googleClient, RequestStack $request)
     {
         $this->googleClient = $googleClient;
         $this->googleClient->setIncludeGrantedScopes(true);
-        $this->googleClient->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/login-check');
+        $this->googleClient->setRedirectUri('http://' . $request->getCurrentRequest()->server->get('HTTP_HOST') . '/login-check');
         $this->googleClient->useApplicationDefaultCredentials();
-        $this->session = $session;
     }
 
     public function getRedirectUri(): string
