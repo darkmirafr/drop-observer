@@ -44,7 +44,7 @@ class CreateUserCommand extends Command
         };
 
         $io->section('Create the User');
-        $this->userManager->saveUserFromEmailAndPlainPassword($input->getArgument('email'), $input->getArgument('password'));
+        $this->userManager->saveFromEmailAndPlainPassword($input->getArgument('email'), $input->getArgument('password'));
         $io->note('Finish.');
     }
 }

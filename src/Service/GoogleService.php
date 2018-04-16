@@ -1,21 +1,25 @@
 <?php
 namespace App\Service;
 
+use App\Entity\User;
 use App\Manager\UserManager;
 use Google_Service_Plus;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class GoogleService
 {
     private $googleClient;
     private $userManager;
+    private $session;
 
-    public function __construct(\Google_Client $googleClient, RequestStack $request, UserManager $userManager)
+    public function __construct(\Google_Client $googleClient, RequestStack $request, UserManager $userManager, SessionInterface $session)
     {
         $this->googleClient = $googleClient;
         $this->googleClient->setIncludeGrantedScopes(true);
         $this->googleClient->setRedirectUri('http://' . $request->getCurrentRequest()->server->get('HTTP_HOST') . '/login-check');
         $this->userManager = $userManager;
+        $this->session = $session;
     }
 
     public function getRedirectUri(): string
@@ -37,6 +41,14 @@ class GoogleService
 
         $email = $people->getEmails()[0]->getValue();
         $user = $this->userManager->getRepository()->findOneBy(['email' => $email]);
+
+        if (null === $user){
+            $user = new User;
+            $user->setEmail($email);
+            $user->setUsername($people->getDisplayName());
+            $user->setGoogleId($people->getId());
+            $this->userManager->save($user);
+        }
 
         return [
             'user' => $user,

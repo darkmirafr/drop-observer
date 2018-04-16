@@ -29,10 +29,19 @@ class UserManager
     }
 
     /**
+     * @param User $user
+     */
+    public function save(User $user)
+    {
+        $this->entityManager->persist($user);
+        $this->entityManager->flush();
+    }
+
+    /**
      * @param string $email
      * @param string $plainPassword
      */
-    public function saveUserFromEmailAndPlainPassword(string $email, string $plainPassword)
+    public function saveFromEmailAndPlainPassword(string $email, string $plainPassword)
     {
         $user = new User();
         $user->setEmail($email);

@@ -29,9 +29,23 @@ class User implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column
+     * @ORM\Column(nullable=true)
      */
     private $password;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(nullable=true)
+     */
+    private $googleId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(nullable=true)
+     */
+    private $username;
 
     public function getId(): int
     {
@@ -74,6 +88,24 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getGoogleId(): ?string
+    {
+        return $this->googleId;
+    }
+
+    /**
+     * @param string $googleId
+     * @return User
+     */
+    public function setGoogleId(string $googleId): User
+    {
+        $this->googleId = $googleId;
+        return $this;
+    }
+
     public function getRoles(): array
     {
         return array('ROLE_USER');
@@ -91,5 +123,11 @@ class User implements UserInterface
     public function getUsername(): string
     {
         return $this->email;
+    }
+
+    public function setUsername(string $username): User
+    {
+        $this->username = $username;
+        return $this;
     }
 }
