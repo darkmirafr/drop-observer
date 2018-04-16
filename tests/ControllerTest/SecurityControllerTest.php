@@ -2,7 +2,6 @@
 
 namespace App\ControllerTest;
 
-use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class SecurityControllerTest extends WebTestCase
@@ -15,16 +14,16 @@ class SecurityControllerTest extends WebTestCase
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
 
-    public function testAdminPageIsRedirect()
+    public function testLoginFormIsRedirection()
     {
         $client = self::createClient();
-        $client->request('GET', '/admin');
+        $crawler = $client->request('GET', '/login');
+
+        $form = $crawler->selectButton('Submit')->form();
+        $form['user[email]'] = 'phpunit@test.com';
+        $form['user[password]'] = 'phpunitiswrongtestpassword';
+        $client->submit($form);
 
         $this->assertTrue($client->getResponse()->isRedirection());
-    }
-
-    public function testUserIsRoleUser()
-    {
-        $this->assertSame('ROLE_USER', (new User)->getRoles()[0]);
     }
 }

@@ -10,5 +10,9 @@ login:
     path: /login
     controller: App\Controller\SecurityController::login
 
+login-check:
+    path: /login-check
+    controller: App\Controller\SecurityController::loginCheck
+
 logout:
     path: /logout

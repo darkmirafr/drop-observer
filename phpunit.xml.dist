@@ -8,6 +8,7 @@
          bootstrap="vendor/autoload.php"
 >
     <php>
+        <server name='HTTP_HOST' value='http://localhost' />
         <ini name="error_reporting" value="-1" />
         <env name="KERNEL_CLASS" value="App\Kernel" />
         <env name="APP_ENV" value="test" />
