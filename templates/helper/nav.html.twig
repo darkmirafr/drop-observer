@@ -1,8 +1,9 @@
 <nav class="nav nav-pills bg-dark">
     <a class="nav-link text-white {% if 'index' == app.request.attributes.get('_route') %}text-success{% endif %}" href="{{ path('index') }}"><i class="ion-home"></i> Home</a>
     {% if is_granted('ROLE_USER') %}
-        <a class="nav-link text-white {% if 'admin' == app.request.attributes.get('_route') %}text-success{% endif %}" href="{{ path('admin') }}"><i class="ion-ios-settings-strong"></i> Admin</a>
+        <a class="nav-link text-white {% if 'admin' == app.request.attributes.get('_route') %}text-success{% endif %}" href="{{ path('admin') }}"><i class="ion-ios-settings-strong"></i> Dashboard</a>
         <a class="nav-link text-white" href="{{ path('logout') }}"><i class="ion-log-out"></i> Logout</a>
+        <a class="btn disabled text-white lead">{% if app.user.username is not empty %}{{ app.user.username }} | {% endif %}{{ app.user.email }}</a>
     {% else %}
         <a class="nav-link text-white {% if 'login' == app.request.attributes.get('_route') %}text-success{% endif %}" href="{{ path('login') }}"><i class="ion-log-in"></i> Login</a>
     {% endif %}

@@ -1,8 +1,18 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Dashboard | Drop obServer{% endblock %}
+
 {% block body %}
+<div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1>Twitter credentials form</h1>
-        <h1>Cron configuration</h1>
+        <h1 class="display-4">Hello, world!</h1>
+        <p class="lead">Dashboard of the Drop obServer.</p>
+        <hr class="my-4">
+        {% if not ('@darkmira.com' in app.user.email) %}
+            <p>Stay tuned.</p>
+        {% else %}
+            <p>You are a Darkmira member, stay tuned.</p>
+        {% endif %}
     </div>
+</div>
 {% endblock %}
