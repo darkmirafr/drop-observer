@@ -1,4 +1,7 @@
 {
+    "clue/stream-filter": {
+        "version": "v1.4.0"
+    },
     "codacy/coverage": {
         "version": "1.4.1"
     },
@@ -59,26 +62,8 @@
     "doctrine/orm": {
         "version": "v2.6.0"
     },
-    "firebase/php-jwt": {
-        "version": "v5.0.0"
-    },
     "gitonomy/gitlib": {
         "version": "v1.0.3"
-    },
-    "google/apiclient": {
-        "version": "2.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "2.0",
-            "ref": "49c5d7a66d863d28513979bf0666dc77599100c0"
-        }
-    },
-    "google/apiclient-services": {
-        "version": "v0.54"
-    },
-    "google/auth": {
-        "version": "v1.3.0"
     },
     "guzzlehttp/guzzle": {
         "version": "6.3.2"
@@ -89,11 +74,11 @@
     "guzzlehttp/psr7": {
         "version": "1.4.2"
     },
+    "hwi/oauth-bundle": {
+        "version": "0.6.2"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
-    },
-    "monolog/monolog": {
-        "version": "1.23.0"
     },
     "nikic/php-parser": {
         "version": "v4.0.0"
@@ -104,8 +89,44 @@
     "ocramius/proxy-manager": {
         "version": "2.1.1"
     },
-    "phpseclib/phpseclib": {
-        "version": "2.0.10"
+    "php-http/cache-plugin": {
+        "version": "v1.5.0"
+    },
+    "php-http/client-common": {
+        "version": "1.7.0"
+    },
+    "php-http/discovery": {
+        "version": "1.4.0"
+    },
+    "php-http/guzzle6-adapter": {
+        "version": "v1.1.1"
+    },
+    "php-http/httplug": {
+        "version": "v1.1.0"
+    },
+    "php-http/httplug-bundle": {
+        "version": "1.6",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.6",
+            "ref": "4655962c64e2de96c418caf576c57215711c7877"
+        }
+    },
+    "php-http/logger-plugin": {
+        "version": "v1.0.0"
+    },
+    "php-http/message": {
+        "version": "1.6.0"
+    },
+    "php-http/message-factory": {
+        "version": "v1.0.2"
+    },
+    "php-http/promise": {
+        "version": "v1.0.0"
+    },
+    "php-http/stopwatch-plugin": {
+        "version": "1.1.0"
     },
     "psr/cache": {
         "version": "1.0.1"
@@ -274,6 +295,9 @@
     },
     "symfony/stopwatch": {
         "version": "v4.0.4"
+    },
+    "symfony/templating": {
+        "version": "v4.0.8"
     },
     "symfony/twig-bridge": {
         "version": "v4.0.4"

@@ -29,4 +29,12 @@ class DefaultControllerTest extends WebTestCase
 
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
+
+    public function testLoginPageIsSuccessful()
+    {
+        $client = self::createClient();
+        $client->request('GET', '/login');
+
+        $this->assertTrue($client->getResponse()->isRedirection());
+    }
 }
