@@ -1,0 +1,10 @@
+hwi_oauth:
+    firewall_names: [secured_area]
+    resource_owners:
+        google:
+            type:                google
+            scope:               "https://www.googleapis.com/auth/userinfo.email"
+            client_id:           '%env(GOOGLE_CLIENT_ID)%'
+            client_secret:       '%env(GOOGLE_CLIENT_SECRET)%'
+            options:
+                csrf: true

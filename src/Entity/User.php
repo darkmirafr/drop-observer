@@ -38,13 +38,6 @@ class User implements UserInterface
      *
      * @ORM\Column(nullable=true)
      */
-    private $googleId;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(nullable=true)
-     */
     private $username;
 
     public function getId(): int
@@ -85,24 +78,6 @@ class User implements UserInterface
     public function setPassword(string $password): User
     {
         $this->password = $password;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getGoogleId(): ?string
-    {
-        return $this->googleId;
-    }
-
-    /**
-     * @param string $googleId
-     * @return User
-     */
-    public function setGoogleId(string $googleId): User
-    {
-        $this->googleId = $googleId;
         return $this;
     }
 

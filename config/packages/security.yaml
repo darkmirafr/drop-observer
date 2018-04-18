@@ -1,8 +1,4 @@
 security:
-    encoders:
-        App\Entity\User:
-            algorithm: bcrypt
-
     providers:
         db_provider:
             entity:
@@ -10,19 +6,25 @@ security:
                 property: email
 
     firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-        main:
+        secured_area:
             anonymous: ~
-            form_login:
-                login_path: login
-                check_path: login
-                username_parameter: user[email]
-                password_parameter: user[password]
             logout:
                 path: /logout
                 target: /
+            oauth:
+                resource_owners:
+                    google:             "/login/check-google"
+                login_path:        /login
+                use_forward:       false
+                failure_path:      /login
+
+                oauth_user_provider:
+                    service: App\Provider\UserProvider
+
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
 
     access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin, roles: ROLE_USER }
