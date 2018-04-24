@@ -10,10 +10,9 @@ class TwitterController extends AbstractController
 {
     public function index(TwitterService $twitterService)
     {
-        $domain_name = substr(strrchr($this->getUser()->getEmail(), "@"), 1);
-
         $twitterService->persistLastTweets();
+        $json = $twitterService->getStatusesMentionsTimeline();
 
-        return new JsonResponse($twitterService->getStatusesMentionsTimeline(), 200, [], true);
+        return new JsonResponse($json, 200, [], true);
     }
 }
