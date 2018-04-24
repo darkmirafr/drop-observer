@@ -13,7 +13,7 @@ services:
       environment:
           WEB_DOCUMENT_ROOT: /app/public
           WEB_DOCUMENT_INDEX: index.php
-          PHP_DATE_TIMEZONE: "Europe/Paris"
+          PHP_DATE_TIMEZONE: "UTC"
           PHP_DISPLAY_ERRORS: 1
 
   database:

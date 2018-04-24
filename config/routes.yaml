@@ -26,3 +26,7 @@ login:
 
 logout:
     path: /logout
+
+twitter:
+    path: /twitter
+    controller: App\Controller\TwitterController::index
