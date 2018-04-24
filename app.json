@@ -15,6 +15,18 @@
       },
       "GOOGLE_CLIENT_SECRET": {
           "required": true
+      },
+      "TWITTER_CONSUMER_KEY": {
+        "required": true
+      },
+      "TWITTER_CONSUMER_SECRET": {
+        "required": true
+      },
+      "TWITTER_ACCESS_TOKEN": {
+        "required": true
+      },
+      "TWITTER_ACCESS_TOKEN_SECRET": {
+        "required": true
       }
   }
 }
