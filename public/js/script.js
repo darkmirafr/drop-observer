@@ -8,7 +8,7 @@ $(function() {
             progress.width("100%").html("100%");
             progress.fadeOut("slow");
             data.forEach(function(element) {
-                $('#tweet-list').append("<li class=\"list-group-item\">" + element.text + "</li>");
+                $("#tweet-list").append("<li class=\"list-group-item\">" + element.text + "</li>");
             });
         }).fail(function() {
             progress.removeClass("bg-success");
