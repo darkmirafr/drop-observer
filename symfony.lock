@@ -1,4 +1,7 @@
 {
+    "abraham/twitteroauth": {
+        "version": "0.7.4"
+    },
     "clue/stream-filter": {
         "version": "v1.4.0"
     },
@@ -61,6 +64,15 @@
     },
     "doctrine/orm": {
         "version": "v2.6.0"
+    },
+    "endroid/twitter": {
+        "version": "2.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "2.0",
+            "ref": "72d737350a91c4e1d5d5e804dea7df5e21337a7e"
+        }
     },
     "gitonomy/gitlib": {
         "version": "v1.0.3"
@@ -292,6 +304,9 @@
     },
     "symfony/security-core": {
         "version": "v4.0.4"
+    },
+    "symfony/serializer": {
+        "version": "v4.0.8"
     },
     "symfony/stopwatch": {
         "version": "v4.0.4"
