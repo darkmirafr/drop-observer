@@ -17,9 +17,9 @@ hwi_oauth_login:
 google_login:
     path: /login/check-google
 
-admin:
-    path: /admin
-    controller: App\Controller\AdminController::index
+dashboard:
+    path: /dashboard
+    controller: App\Controller\DashboardController::index
 
 login:
     path: /login

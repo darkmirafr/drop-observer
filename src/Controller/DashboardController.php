@@ -3,10 +3,10 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class AdminController extends AbstractController
+class DashboardController extends AbstractController
 {
     public function index()
     {
-        return $this->render('admin/index.html.twig');
+        return $this->render('dashboard/index.html.twig');
     }
 }
