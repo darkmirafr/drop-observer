@@ -40,13 +40,53 @@ class User implements UserInterface
      */
     private $username;
 
+    /**
+     * @var array
+     *
+     * @ORM\Column(type="array")
+     */
+    private $roles;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(nullable=true)
+     */
+    private $twitterConsumerKey;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(nullable=true)
+     */
+    private $twitterConsumerSecret;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(nullable=true)
+     */
+    private $twitterAccessToken;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(nullable=true)
+     */
+    private $twitterAccessTokenSecret;
+
+    public function __construct()
+    {
+        $this->roles = ['ROLE_USER'];
+    }
+
     public function getId(): int
     {
         return $this->id;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
     public function getEmail(): ?string
     {
@@ -64,7 +104,7 @@ class User implements UserInterface
     }
 
     /**
-     * @return string
+     * @return null|string
      */
     public function getPassword(): ?string
     {
@@ -81,9 +121,112 @@ class User implements UserInterface
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param string $username
+     * @return User
+     */
+    public function setUsername(string $username): User
+    {
+        $this->username = $username;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
     public function getRoles(): array
     {
-        return array('ROLE_USER');
+        return $this->roles;
+    }
+
+    /**
+     * @param array $roles
+     * @return User
+     */
+    public function setRoles(array $roles): User
+    {
+        $this->roles = $roles;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTwitterConsumerKey(): string
+    {
+        return $this->twitterConsumerKey;
+    }
+
+    /**
+     * @param string $twitterConsumerKey
+     * @return User
+     */
+    public function setTwitterConsumerKey(string $twitterConsumerKey): User
+    {
+        $this->twitterConsumerKey = $twitterConsumerKey;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTwitterConsumerSecret(): string
+    {
+        return $this->twitterConsumerSecret;
+    }
+
+    /**
+     * @param string $twitterConsumerSecret
+     * @return User
+     */
+    public function setTwitterConsumerSecret(string $twitterConsumerSecret): User
+    {
+        $this->twitterConsumerSecret = $twitterConsumerSecret;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTwitterAccessToken(): string
+    {
+        return $this->twitterAccessToken;
+    }
+
+    /**
+     * @param string $twitterAccessToken
+     * @return User
+     */
+    public function setTwitterAccessToken(string $twitterAccessToken): User
+    {
+        $this->twitterAccessToken = $twitterAccessToken;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTwitterAccessTokenSecret(): string
+    {
+        return $this->twitterAccessTokenSecret;
+    }
+
+    /**
+     * @param string $twitterAccessTokenSecret
+     * @return User
+     */
+    public function setTwitterAccessTokenSecret(string $twitterAccessTokenSecret): User
+    {
+        $this->twitterAccessTokenSecret = $twitterAccessTokenSecret;
+        return $this;
     }
 
     public function getSalt(): ?string
@@ -95,14 +238,4 @@ class User implements UserInterface
     {
     }
 
-    public function getUsername(): string
-    {
-        return $this->username;
-    }
-
-    public function setUsername(string $username): User
-    {
-        $this->username = $username;
-        return $this;
-    }
 }

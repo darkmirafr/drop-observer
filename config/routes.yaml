@@ -24,9 +24,13 @@ admin:
 login:
     path: /login
 
+profile:
+    path: /profile
+    controller: App\Controller\ProfileController::index
+
 logout:
     path: /logout
 
-twitter:
-    path: /twitter
-    controller: App\Controller\TwitterController::index
+#twitter:
+#    path: /twitter
+#    controller: App\Controller\TwitterController::index

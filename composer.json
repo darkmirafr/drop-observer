@@ -22,7 +22,8 @@
         "symfony/security-core": "^4.0",
         "symfony/serializer": "^4.0",
         "symfony/twig-bundle": "^4.0",
-        "symfony/yaml": "^4.0"
+        "symfony/yaml": "^4.0",
+        "twig/extensions": "^1.5"
     },
     "require-dev": {
         "codacy/coverage": "^1.4",
