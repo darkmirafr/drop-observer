@@ -1,24 +1,22 @@
-sudo: required
-
 language: php
 
 php:
-    - nightly
+  - 7.1
+  - 7.2
 
-services:
-    - docker
+matrix:
+    allow_failures:
+      - php: nightly
 
-before_install:
-    - cp .env.dist .env
-    - docker-compose up -d
-    - docker-compose exec web composer install --no-interaction --prefer-dist --optimize-autoloader
-    - docker-compose exec web php bin/console doctrine:database:drop --force
-    - docker-compose exec web php bin/console doctrine:database:create
-    - docker-compose exec web php bin/console doctrine:schema:update --force
-    - docker-compose exec web php bin/console doctrine:schema:validate
+env:
+    - APP_ENV=test
+
+before_script:
+    - echo 'date.timezone = "UTC"' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
 script:
-    - docker-compose exec web php bin/phpunit --coverage-clover build/coverage/xml
+    - composer install --no-interaction
+    - php bin/phpunit --coverage-clover build/coverage/xml
 
 after_script:
     - php vendor/bin/codacycoverage clover build/coverage/xml

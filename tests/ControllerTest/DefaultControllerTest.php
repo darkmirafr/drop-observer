@@ -22,19 +22,11 @@ class DefaultControllerTest extends WebTestCase
 
         $link = $crawler
             ->filter('a:contains("Login")')
-            ->eq(0) // select the second link in the list
+            ->eq(0)
             ->link()
         ;
         $client->click($link);
 
         $this->assertTrue($client->getResponse()->isSuccessful());
-    }
-
-    public function testLoginPageIsSuccessful()
-    {
-        $client = self::createClient();
-        $client->request('GET', '/login');
-
-        $this->assertTrue($client->getResponse()->isRedirection());
     }
 }
