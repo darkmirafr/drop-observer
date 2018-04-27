@@ -8,12 +8,13 @@ php:
   - nightly
 
 env:
-    - APP_ENV="test"
+    - APP_ENV=test
 
 before_script:
     - echo 'date.timezone = "UTC"' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
 script:
+    - composer install --no-interaction
     - php bin/phpunit --coverage-clover build/coverage/xml
 
 after_script:
