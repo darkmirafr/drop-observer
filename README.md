@@ -6,6 +6,7 @@
 [![Coverage Badge](https://api.shippable.com/projects/5aca871fcb68540600e1736d/coverageBadge?branch=develop)](https://app.shippable.com/github/Darkmira/drop-observer) 
 
 [![Build Status](https://scrutinizer-ci.com/g/Darkmira/drop-observer/badges/build.png?b=develop)](https://scrutinizer-ci.com/g/Darkmira/drop-observer/build-status/develop)
+[![buddy pipeline](https://app.buddy.works/villegerc/drop-observer/pipelines/pipeline/134904/badge.svg?token=4c0be1ced16e6dd0a7ede5fdd3d51b08464905c0372ddfac2d5cc54e8f7e80fb "buddy pipeline")](https://app.buddy.works/villegerc/drop-observer/pipelines/pipeline/134904)
 [![Code Coverage](https://scrutinizer-ci.com/g/Darkmira/drop-observer/badges/coverage.png?b=develop)](https://scrutinizer-ci.com/g/Darkmira/drop-observer/?branch=develop)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Darkmira/drop-observer/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/Darkmira/drop-observer/?branch=develop)
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/Darkmira/drop-observer/badges/code-intelligence.svg?b=develop)](https://scrutinizer-ci.com/code-intelligence)
