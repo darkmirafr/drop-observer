@@ -2,31 +2,37 @@
 
 namespace App\ControllerTest;
 
+use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class DefaultControllerTest extends WebTestCase
 {
+    /** @var Client */
+    private $client;
+
+    public function setUp()
+    {
+        $this->client = self::createClient();
+    }
+
     public function testIndexPageIsSuccessful()
     {
-        $client = self::createClient();
-        $client->request('GET', '/');
+        $this->client->request('GET', '/');
 
-        $this->assertTrue($client->getResponse()->isSuccessful());
+        $this->assertTrue($this->client->getResponse()->isSuccessful());
     }
 
     public function testClickOnLoginPageIsSuccessful()
     {
-        $client = self::createClient();
-        $client->followRedirects();
-        $crawler = $client->request('GET', '/');
+        $crawler = $this->client->request('GET', '/');
 
         $link = $crawler
             ->filter('a:contains("Login")')
             ->eq(0)
             ->link()
         ;
-        $client->click($link);
+        $this->client->click($link);
 
-        $this->assertTrue($client->getResponse()->isSuccessful());
+        $this->assertTrue($this->client->getResponse()->isRedirection());
     }
 }
