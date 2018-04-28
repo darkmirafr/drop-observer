@@ -16,7 +16,7 @@
         </li>
     {% else %}
         <li class="nav-item">
-            <a class="nav-link text-white {% if 'login' == app.request.attributes.get('_route') %}active{% endif %}" href="{{ path('login') }}"><i class="ion-log-in"></i> Login</a>
+            <a class="nav-link text-white" href="{{ hwi_oauth_login_url('google') }}"><i class="ion-social-googleplus"></i> Login</a>
         </li>
     {% endif %}
 </ul>

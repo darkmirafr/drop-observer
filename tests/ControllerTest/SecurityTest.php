@@ -28,7 +28,6 @@ class SecurityTest extends WebTestCase
         $user = new User();
         $user->setUsername('phpunit-user');
         $user->setEmail('phpunit@test.me');
-        $user->setPassword('phpunittestpassword');
         $roles = ['ROLE_USER'];
         $user->setRoles($roles);
         $user->setTwitterAccessToken('phpunitTwitterAccessToken');
@@ -39,7 +38,6 @@ class SecurityTest extends WebTestCase
         $this->assertInstanceOf(User::class, $user);
         $this->assertSame('phpunit-user', $user->getUsername());
         $this->assertSame('phpunit@test.me', $user->getEmail());
-        $this->assertSame('phpunittestpassword', $user->getPassword());
         $this->assertSame($roles, $user->getRoles());
         $this->assertSame('phpunitTwitterAccessToken', $user->getTwitterAccessToken());
         $this->assertSame('phpunitTwitterAccessTokenSecret', $user->getTwitterAccessTokenSecret());

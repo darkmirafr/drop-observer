@@ -31,13 +31,6 @@ class User implements UserInterface
      *
      * @ORM\Column(nullable=true)
      */
-    private $password;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(nullable=true)
-     */
     private $username;
 
     /**
@@ -108,26 +101,6 @@ class User implements UserInterface
     /**
      * @return null|string
      */
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    /**
-     * @param string $password
-     *
-     * @return User
-     */
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getUsername(): ?string
     {
         return $this->username;
@@ -166,9 +139,9 @@ class User implements UserInterface
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getTwitterConsumerKey(): string
+    public function getTwitterConsumerKey(): ?string
     {
         return $this->twitterConsumerKey;
     }
@@ -186,9 +159,9 @@ class User implements UserInterface
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getTwitterConsumerSecret(): string
+    public function getTwitterConsumerSecret(): ?string
     {
         return $this->twitterConsumerSecret;
     }
@@ -206,9 +179,9 @@ class User implements UserInterface
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getTwitterAccessToken(): string
+    public function getTwitterAccessToken(): ?string
     {
         return $this->twitterAccessToken;
     }
@@ -226,9 +199,9 @@ class User implements UserInterface
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getTwitterAccessTokenSecret(): string
+    public function getTwitterAccessTokenSecret(): ?string
     {
         return $this->twitterAccessTokenSecret;
     }
@@ -245,9 +218,8 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getSalt(): ?string
+    public function getSalt(): void
     {
-        return null;
     }
 
     public function eraseCredentials(): void
