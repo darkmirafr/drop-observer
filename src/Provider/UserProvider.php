@@ -31,6 +31,9 @@ class UserProvider implements OAuthAwareUserProviderInterface
             $user = new User();
             $user->setEmail($response->getEmail());
             $user->setUsername($response->getNickname());
+            if ('darkmira.com' === substr(strrchr($response->getEmail(), "@"), 1)){
+                $user->addRole('ROLE_USER_DARKMIRA');
+            }
             $this->userManager->save($user, true);
         }
 

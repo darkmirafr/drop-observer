@@ -2,10 +2,10 @@
 
 namespace App\ControllerTest;
 
+use HWI\Bundle\OAuthBundle\Security\Core\Authentication\Token\OAuthToken;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\BrowserKit\Cookie;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class DashboardControllerTest extends WebTestCase
 {
@@ -36,7 +36,7 @@ class DashboardControllerTest extends WebTestCase
     {
         $session = $this->client->getContainer()->get('session');
 
-        $token = new UsernamePasswordToken('admin', null, 'secured_area', ['ROLE_USER']);
+        $token = new OAuthToken('accessToken', array('ROLE_USER'));
         $session->set('_security_secured_area', serialize($token));
         $session->save();
 
