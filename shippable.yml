@@ -1,21 +1,9 @@
-language: python
+language: php
 
-python:
-  - 3.6
+php:
+  - 7.1
 
 build:
-  pre_ci_boot:
-    options: "-v /app:/app"
   ci:
-    - cp -R . /app
-    - cp .env.dist .env
-    - cp docker-compose.override.yml.dist docker-compose.override.yml
-    - pip install -U docker-compose
-    - docker-compose up -d
-    - docker-compose exec -T web composer install
-    - docker-compose exec -T web php bin/console doctrine:database:drop --force
-    - docker-compose exec -T web php bin/console doctrine:database:create
-    - docker-compose exec -T web php bin/console doctrine:schema:update --force
-    - docker-compose exec -T web php bin/console doctrine:schema:validate
-    - docker-compose exec -T web php bin/console doctrine:fixtures:load --no-interaction
-    - docker-compose exec -T web php bin/phpunit --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage
+    - composer install
+#    - php ./bin/phpunit --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage

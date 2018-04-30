@@ -9,6 +9,10 @@ build:
         variables:
             APP_ENV: 'test'
             DATABASE_URL: 'mysql://root@localhost:3306/mydatabase'
+
+    project_setup:
+        before:
+            - mysql -e "CREATE DATABASE mydatabase"
     tests:
         override:
             -
