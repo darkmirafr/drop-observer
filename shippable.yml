@@ -5,7 +5,7 @@ python:
 
 build:
   pre_ci_boot:
-    options: "-v $SHIPPABLE_BUILD_DIR:$SHIPPABLE_BUILD_DIR"
+    options: "-v /app:/app"
   ci:
     - cp -R . /app
     - cp .env.dist .env
