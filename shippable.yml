@@ -1,9 +1,18 @@
-language: php
+language: python
 
-php:
-  - 7.1
+python:
+  - 3.6
 
 build:
   ci:
-    - composer install
-    - php ./bin/phpunit --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage
+    - cp .env.dist .env
+    - cp docker-compose.override.yml.dist docker-compose.override.yml
+    - pip install -U docker-compose
+    - docker-compose up -d
+    - docker-compose exec web composer install
+    - docker-compose exec web php bin/console doctrine:database:drop --force
+    - docker-compose exec web php bin/console doctrine:database:create
+    - docker-compose exec web php bin/console doctrine:schema:update --force
+    - docker-compose exec web php bin/console doctrine:schema:validate
+    - docker-compose exec web php bin/console doctrine:fixtures:load --no-interaction
+    - docker-compose exec web php ./bin/phpunit --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage
