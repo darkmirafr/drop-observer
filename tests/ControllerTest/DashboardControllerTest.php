@@ -2,10 +2,8 @@
 
 namespace App\ControllerTest;
 
-use HWI\Bundle\OAuthBundle\Security\Core\Authentication\Token\OAuthToken;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\BrowserKit\Cookie;
 
 class DashboardControllerTest extends WebTestCase
 {
@@ -23,5 +21,4 @@ class DashboardControllerTest extends WebTestCase
 
         $this->assertTrue($this->client->getResponse()->isRedirect('http://localhost/login'));
     }
-
 }

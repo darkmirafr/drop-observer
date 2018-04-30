@@ -2,6 +2,7 @@
 
 namespace App\ControllerTest;
 
+use App\Entity\Event;
 use App\Entity\Tweet;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Client;
@@ -31,6 +32,7 @@ class SecurityTest extends WebTestCase
         $user->setEmail('phpunit@test.me');
         $roles = ['ROLE_USER'];
         $user->setRoles($roles);
+        $user->addRole('ROLE_USER_PHPUNIT');
         $user->setTwitterAccessToken('phpunitTwitterAccessToken');
         $user->setTwitterAccessTokenSecret('phpunitTwitterAccessTokenSecret');
         $user->setTwitterConsumerKey('phpunitTwitterConsumerKey');
@@ -39,7 +41,7 @@ class SecurityTest extends WebTestCase
         $this->assertInstanceOf(User::class, $user);
         $this->assertSame('phpunit-user', $user->getUsername());
         $this->assertSame('phpunit@test.me', $user->getEmail());
-        $this->assertSame($roles, $user->getRoles());
+        $this->assertSame(['ROLE_USER', 'ROLE_USER_PHPUNIT'], $user->getRoles());
         $this->assertSame('phpunitTwitterAccessToken', $user->getTwitterAccessToken());
         $this->assertSame('phpunitTwitterAccessTokenSecret', $user->getTwitterAccessTokenSecret());
         $this->assertSame('phpunitTwitterConsumerKey', $user->getTwitterConsumerKey());
@@ -60,5 +62,20 @@ class SecurityTest extends WebTestCase
         $this->assertSame(true, $tweet->isTruncated());
         $this->assertSame('phpunitText', $tweet->getText());
         $this->assertSame($createdAt, $tweet->getCreatedAt());
+    }
+
+    public function testEventIsInstantiable()
+    {
+        $event = new Event();
+        $user = new User();
+        $event->setUser(new User());
+        $event->setName('phpunitEvent');
+        $createdAt = new \DateTime();
+        $event->setCreateAt($createdAt);
+
+        $this->assertInstanceOf(Event::class, $event);
+        $this->assertEquals($user, $event->getUser());
+        $this->assertSame('phpunitEvent', $event->getName());
+        $this->assertSame($createdAt, $event->getCreateAt());
     }
 }

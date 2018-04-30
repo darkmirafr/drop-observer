@@ -11,7 +11,7 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        for ($i = 0; $i < 3; ++$i) {
+        for ($i = 0; $i < 3; $i++) {
             $event = new Event();
             $event->setName('Event_'.$i);
             $event->setCreateAt(new \DateTime());
