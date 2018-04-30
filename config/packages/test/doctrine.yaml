@@ -1,7 +1,7 @@
 doctrine:
     dbal:
         # configure these for your database server
-        driver: 'sqlite'
+        driver: 'pdo_sqlite'
         charset: utf8
 
         # With Symfony 3.3, remove the `resolve:` prefix
