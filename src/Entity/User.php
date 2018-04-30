@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -25,13 +27,6 @@ class User implements UserInterface
      * @ORM\Column(unique=true)
      */
     private $email;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(nullable=true)
-     */
-    private $password;
 
     /**
      * @var string
@@ -75,9 +70,15 @@ class User implements UserInterface
      */
     private $twitterAccessTokenSecret;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Event", mappedBy="user", orphanRemoval=true)
+     */
+    private $events;
+
     public function __construct()
     {
         $this->roles = ['ROLE_USER'];
+        $this->events = new ArrayCollection();
     }
 
     public function getId(): int
@@ -101,26 +102,6 @@ class User implements UserInterface
     public function setEmail(string $email): self
     {
         $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    /**
-     * @param string $password
-     *
-     * @return User
-     */
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
 
         return $this;
     }
@@ -166,9 +147,19 @@ class User implements UserInterface
     }
 
     /**
-     * @return string
+     * @param string $role
+     * @return User
      */
-    public function getTwitterConsumerKey(): string
+    public function addRole(string $role): User
+    {
+        $this->roles[] = $role;
+        return $this;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getTwitterConsumerKey(): ?string
     {
         return $this->twitterConsumerKey;
     }
@@ -186,9 +177,9 @@ class User implements UserInterface
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getTwitterConsumerSecret(): string
+    public function getTwitterConsumerSecret(): ?string
     {
         return $this->twitterConsumerSecret;
     }
@@ -206,9 +197,9 @@ class User implements UserInterface
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getTwitterAccessToken(): string
+    public function getTwitterAccessToken(): ?string
     {
         return $this->twitterAccessToken;
     }
@@ -226,9 +217,9 @@ class User implements UserInterface
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getTwitterAccessTokenSecret(): string
+    public function getTwitterAccessTokenSecret(): ?string
     {
         return $this->twitterAccessTokenSecret;
     }
@@ -245,12 +236,46 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getSalt(): ?string
+    public function getSalt(): void
     {
-        return null;
     }
 
     public function eraseCredentials(): void
     {
+    }
+
+    public function getPassword(): void
+    {
+    }
+
+    /**
+     * @return Collection|Event[]
+     */
+    public function getEvents(): Collection
+    {
+        return $this->events;
+    }
+
+    public function addEvent(Event $event): self
+    {
+        if (!$this->events->contains($event)) {
+            $this->events[] = $event;
+            $event->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvent(Event $event): self
+    {
+        if ($this->events->contains($event)) {
+            $this->events->removeElement($event);
+            // set the owning side to null (unless already changed)
+            if ($event->getUser() === $this) {
+                $event->setUser(null);
+            }
+        }
+
+        return $this;
     }
 }

@@ -10,43 +10,38 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class UserManager
 {
     private $entityManager;
-    private $encoder;
-    private $userRepository;
+    private $repository;
 
     /**
      * UserManager constructor.
      */
-    public function __construct(EntityManagerInterface $entityManager, UserPasswordEncoderInterface $encoder, UserRepository $userRepository)
+    public function __construct(EntityManagerInterface $entityManager, UserRepository $repository)
     {
         $this->entityManager = $entityManager;
-        $this->encoder = $encoder;
-        $this->userRepository = $userRepository;
-    }
-
-    public function getRepository(): UserRepository
-    {
-        return $this->userRepository;
+        $this->repository = $repository;
     }
 
     /**
      * @param User $user
      */
-    public function save(User $user)
+    public function save(User $user, $flush = false)
     {
         $this->entityManager->persist($user);
+        if ($flush){
+            $this->flush();
+        }
+    }
+
+    public function flush()
+    {
         $this->entityManager->flush();
     }
 
     /**
-     * @param string $email
-     * @param string $plainPassword
+     * @return UserRepository
      */
-    public function saveFromEmailAndPlainPassword(string $email, string $plainPassword)
+    public function getRepository(): UserRepository
     {
-        $user = new User();
-        $user->setEmail($email);
-        $user->setPassword($this->encoder->encodePassword($user, $plainPassword));
-        $this->entityManager->persist($user);
-        $this->entityManager->flush();
+        return $this->repository;
     }
 }

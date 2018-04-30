@@ -27,11 +27,19 @@ class UserProvider implements OAuthAwareUserProviderInterface
     public function loadUserByOAuthUserResponse(UserResponseInterface $response): UserInterface
     {
         $user = $this->userManager->getRepository()->findOneBy(['email' => $response->getEmail()]);
-        if (null === $user) {
-            $user = new User();
-            $user->setEmail($response->getEmail());
-            $user->setUsername($response->getNickname());
-            $this->userManager->save($user);
+        if (null === $user){
+            $user = new User;
+            $email = $response->getEmail();
+            $user->setEmail($email);
+            $username = $response->getNickname();
+            $user->setUsername($username);
+            if (null === $username){
+                $user->setUsername($response->getNickname());
+            }
+            if ('darkmira.com' === substr(strrchr($email, "@"), 1)){
+                $user->addRole('ROLE_USER_DARKMIRA');
+            }
+            $this->userManager->save($user, true);
         }
 
         return $user;
