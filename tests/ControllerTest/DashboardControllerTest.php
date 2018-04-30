@@ -24,23 +24,4 @@ class DashboardControllerTest extends WebTestCase
         $this->assertTrue($this->client->getResponse()->isRedirect('http://localhost/login'));
     }
 
-    public function testAuthenticatedDashboardPageIsIsSuccessful()
-    {
-        $this->logIn();
-        $this->client->request('GET', '/dashboard');
-
-        $this->assertTrue($this->client->getResponse()->isSuccessful());
-    }
-
-    private function logIn()
-    {
-        $session = $this->client->getContainer()->get('session');
-
-        $token = new OAuthToken('accessToken', ['ROLE_USER']);
-        $session->set('_security_secured_area', serialize($token));
-        $session->save();
-
-        $cookie = new Cookie($session->getName(), $session->getId());
-        $this->client->getCookieJar()->set($cookie);
-    }
 }

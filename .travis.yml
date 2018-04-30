@@ -14,9 +14,6 @@ env:
 
 before_script:
     - echo 'date.timezone = "UTC"' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
-    - php bin/console doctrine:database:drop --force
-    - php bin/console doctrine:database:create
-    - php bin/console doctrine:schema:update --force
 
 script:
     - composer install --no-interaction
