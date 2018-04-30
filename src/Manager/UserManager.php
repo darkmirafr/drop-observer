@@ -5,7 +5,6 @@ namespace App\Manager;
 use App\Entity\User;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserManager
 {
@@ -27,7 +26,7 @@ class UserManager
     public function save(User $user, $flush = false)
     {
         $this->entityManager->persist($user);
-        if ($flush){
+        if ($flush) {
             $this->flush();
         }
     }

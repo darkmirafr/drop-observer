@@ -13,7 +13,7 @@ class ProfileType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -22,8 +22,7 @@ class ProfileType extends AbstractType
             ->add('twitterConsumerSecret', PasswordType::class)
             ->add('twitterAccessToken')
             ->add('twitterAccessTokenSecret', PasswordType::class)
-            ->add('save', SubmitType::class, ['attr' => ['class' => 'btn btn-primary']])
-        ;
+            ->add('save', SubmitType::class, ['attr' => ['class' => 'btn btn-primary']]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

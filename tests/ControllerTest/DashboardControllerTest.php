@@ -36,7 +36,7 @@ class DashboardControllerTest extends WebTestCase
     {
         $session = $this->client->getContainer()->get('session');
 
-        $token = new OAuthToken('accessToken', array('ROLE_USER'));
+        $token = new OAuthToken('accessToken', ['ROLE_USER']);
         $session->set('_security_secured_area', serialize($token));
         $session->save();
 

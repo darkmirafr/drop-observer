@@ -48,11 +48,11 @@ class SecurityTest extends WebTestCase
 
     public function testTweetIsInstantiable()
     {
-        $tweet = new Tweet;
+        $tweet = new Tweet();
         $tweet->setUser('phpunitUser');
         $tweet->setTruncated(true);
         $tweet->setText('phpunitText');
-        $createdAt = new \DateTime;
+        $createdAt = new \DateTime();
         $tweet->setCreatedAt($createdAt);
 
         $this->assertInstanceOf(Tweet::class, $tweet);

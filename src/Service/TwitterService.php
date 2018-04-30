@@ -42,6 +42,7 @@ class TwitterService
     public function checkTwitterClient(): bool
     {
         $accountSettings = $this->client->getClient()->get('account/settings');
+
         return !isset($accountSettings->errors);
     }
 

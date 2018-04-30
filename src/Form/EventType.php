@@ -12,14 +12,13 @@ class EventType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('name')
-            ->add('Create', SubmitType::class, ['attr' => ['class' => 'btn btn-primary']])
-        ;
+            ->add('Create', SubmitType::class, ['attr' => ['class' => 'btn btn-primary']]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
