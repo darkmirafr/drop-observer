@@ -4,7 +4,10 @@ python:
   - 3.6
 
 build:
+  pre_ci_boot:
+    options: "-v /app:/app"
   ci:
+    - cp -R . /app
     - cp .env.dist .env
     - cp docker-compose.override.yml.dist docker-compose.override.yml
     - pip install -U docker-compose
