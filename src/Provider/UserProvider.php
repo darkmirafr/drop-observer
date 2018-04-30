@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Provider;
 
 use App\Entity\User;
@@ -26,8 +27,8 @@ class UserProvider implements OAuthAwareUserProviderInterface
     public function loadUserByOAuthUserResponse(UserResponseInterface $response): UserInterface
     {
         $user = $this->userManager->getRepository()->findOneBy(['email' => $response->getEmail()]);
-        if (null === $user){
-            $user = new User;
+        if (null === $user) {
+            $user = new User();
             $user->setEmail($response->getEmail());
             $user->setUsername($response->getNickname());
             $this->userManager->save($user);

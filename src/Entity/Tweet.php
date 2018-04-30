@@ -46,7 +46,6 @@ class Tweet
      */
     private $user;
 
-
     /**
      * @return int
      */
@@ -65,11 +64,13 @@ class Tweet
 
     /**
      * @param \DateTime $createdAt
+     *
      * @return Tweet
      */
-    public function setCreatedAt(\DateTime $createdAt): Tweet
+    public function setCreatedAt(\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
+
         return $this;
     }
 
@@ -83,11 +84,13 @@ class Tweet
 
     /**
      * @param string $text
+     *
      * @return Tweet
      */
-    public function setText(string $text): Tweet
+    public function setText(string $text): self
     {
         $this->text = $text;
+
         return $this;
     }
 
@@ -101,11 +104,13 @@ class Tweet
 
     /**
      * @param bool $truncated
+     *
      * @return Tweet
      */
-    public function setTruncated(bool $truncated): Tweet
+    public function setTruncated(bool $truncated): self
     {
         $this->truncated = $truncated;
+
         return $this;
     }
 
@@ -119,11 +124,13 @@ class Tweet
 
     /**
      * @param string $user
+     *
      * @return Tweet
      */
-    public function setUser(string $user): Tweet
+    public function setUser(string $user): self
     {
         $this->user = $user;
+
         return $this;
     }
 }
