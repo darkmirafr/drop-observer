@@ -95,11 +95,13 @@ class User implements UserInterface
 
     /**
      * @param string $email
+     *
      * @return User
      */
-    public function setEmail(string $email): User
+    public function setEmail(string $email): self
     {
         $this->email = $email;
+
         return $this;
     }
 
@@ -113,11 +115,13 @@ class User implements UserInterface
 
     /**
      * @param string $password
+     *
      * @return User
      */
-    public function setPassword(string $password): User
+    public function setPassword(string $password): self
     {
         $this->password = $password;
+
         return $this;
     }
 
@@ -131,11 +135,13 @@ class User implements UserInterface
 
     /**
      * @param string $username
+     *
      * @return User
      */
-    public function setUsername(string $username): User
+    public function setUsername(string $username): self
     {
         $this->username = $username;
+
         return $this;
     }
 
@@ -149,11 +155,13 @@ class User implements UserInterface
 
     /**
      * @param array $roles
+     *
      * @return User
      */
-    public function setRoles(array $roles): User
+    public function setRoles(array $roles): self
     {
         $this->roles = $roles;
+
         return $this;
     }
 
@@ -167,11 +175,13 @@ class User implements UserInterface
 
     /**
      * @param string $twitterConsumerKey
+     *
      * @return User
      */
-    public function setTwitterConsumerKey(string $twitterConsumerKey): User
+    public function setTwitterConsumerKey(string $twitterConsumerKey): self
     {
         $this->twitterConsumerKey = $twitterConsumerKey;
+
         return $this;
     }
 
@@ -185,11 +195,13 @@ class User implements UserInterface
 
     /**
      * @param string $twitterConsumerSecret
+     *
      * @return User
      */
-    public function setTwitterConsumerSecret(string $twitterConsumerSecret): User
+    public function setTwitterConsumerSecret(string $twitterConsumerSecret): self
     {
         $this->twitterConsumerSecret = $twitterConsumerSecret;
+
         return $this;
     }
 
@@ -203,11 +215,13 @@ class User implements UserInterface
 
     /**
      * @param string $twitterAccessToken
+     *
      * @return User
      */
-    public function setTwitterAccessToken(string $twitterAccessToken): User
+    public function setTwitterAccessToken(string $twitterAccessToken): self
     {
         $this->twitterAccessToken = $twitterAccessToken;
+
         return $this;
     }
 
@@ -221,11 +235,13 @@ class User implements UserInterface
 
     /**
      * @param string $twitterAccessTokenSecret
+     *
      * @return User
      */
-    public function setTwitterAccessTokenSecret(string $twitterAccessTokenSecret): User
+    public function setTwitterAccessTokenSecret(string $twitterAccessTokenSecret): self
     {
         $this->twitterAccessTokenSecret = $twitterAccessTokenSecret;
+
         return $this;
     }
 
@@ -237,5 +253,4 @@ class User implements UserInterface
     public function eraseCredentials(): void
     {
     }
-
 }

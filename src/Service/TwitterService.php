@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Service;
 
 use Abraham\TwitterOAuth\TwitterOAuth;
@@ -23,7 +24,7 @@ class TwitterService
         $this->entityManager = $entityManager;
         $this->tweetRepository = $tweetRepository;
 
-        $serializer = new Serializer([new ObjectNormalizer], [new JsonEncoder]);
+        $serializer = new Serializer([new ObjectNormalizer()], [new JsonEncoder()]);
         $this->serializer = $serializer;
     }
 
@@ -38,15 +39,15 @@ class TwitterService
         $lastTweet = $this->tweetRepository->findOneBy([], ['createdAt' => 'DESC']);
 
         $lastTweetCreatedAt = null;
-        if (null !== $lastTweet){
+        if (null !== $lastTweet) {
             $lastTweetCreatedAt = $lastTweet->getCreatedAt();
         }
 
         $tweetsArray = $this->client->getClient()->get('statuses/mentions_timeline');
-        foreach ($tweetsArray as $tweetArray){
+        foreach ($tweetsArray as $tweetArray) {
             $createdAt = new \DateTime($tweetArray->created_at);
-            if ($lastTweetCreatedAt < $createdAt || null === $lastTweetCreatedAt){
-                $tweet = new Tweet;
+            if ($lastTweetCreatedAt < $createdAt || null === $lastTweetCreatedAt) {
+                $tweet = new Tweet();
                 $tweet->setCreatedAt($createdAt);
                 $tweet->setText($tweetArray->text);
                 $tweet->setTruncated($tweetArray->truncated);

@@ -8,8 +8,8 @@ class AppExtension extends AbstractExtension
 {
     public function getFilters()
     {
-        return array(
-            new \Twig_SimpleFilter('md5', 'md5')
-        );
+        return [
+            new \Twig_SimpleFilter('md5', 'md5'),
+        ];
     }
 }

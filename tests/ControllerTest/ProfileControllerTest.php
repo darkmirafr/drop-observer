@@ -36,7 +36,7 @@ class ProfileControllerTest extends WebTestCase
     {
         $session = $this->client->getContainer()->get('session');
 
-        $token = new UsernamePasswordToken('admin', null, 'secured_area', array('ROLE_USER'));
+        $token = new UsernamePasswordToken('admin', null, 'secured_area', ['ROLE_USER']);
         $session->set('_security_secured_area', serialize($token));
         $session->save();
 

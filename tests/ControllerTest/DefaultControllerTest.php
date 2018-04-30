@@ -29,8 +29,7 @@ class DefaultControllerTest extends WebTestCase
         $link = $crawler
             ->filter('a:contains("Login")')
             ->eq(0)
-            ->link()
-        ;
+            ->link();
         $this->client->click($link);
 
         $this->assertTrue($this->client->getResponse()->isRedirection());

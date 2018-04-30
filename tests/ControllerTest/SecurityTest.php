@@ -25,11 +25,11 @@ class SecurityTest extends WebTestCase
 
     public function testUserIsInstantiable()
     {
-        $user = new User;
+        $user = new User();
         $user->setUsername('phpunit-user');
         $user->setEmail('phpunit@test.me');
         $user->setPassword('phpunittestpassword');
-        $roles = array('ROLE_USER');
+        $roles = ['ROLE_USER'];
         $user->setRoles($roles);
         $user->setTwitterAccessToken('phpunitTwitterAccessToken');
         $user->setTwitterAccessTokenSecret('phpunitTwitterAccessTokenSecret');
