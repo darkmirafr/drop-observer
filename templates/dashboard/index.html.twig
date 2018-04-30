@@ -3,34 +3,30 @@
 {% block title %}Dashboard | Drop obServer{% endblock %}
 
 {% block body %}
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">Welcome to your dashboard</h1>
-            <hr class="my-4">
-            <div class="card-deck">
-                <div class="card">
-                    <div class="card-header">Event #1</div>
-                    <div class="card-body">
-                        <h4 class="card-title">Start : {{ "now"|date }}</h4>
-                        <h4 class="card-title">End : {{ "+100min"|date }}</h4>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header">Event #2</div>
-                    <div class="card-body">
-                        <h4 class="card-title">Start : {{ "now"|date }}</h4>
-                        <h4 class="card-title">End : {{ "+100min"|date }}</h4>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-            </div>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Welcome to your dashboard</h1>
+        <hr class="my-4">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div class="form-group">
+            {{ form_label(form.name ) }}
+            {{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Name of your event'}}) }}
         </div>
+        {{ form_end(form) }}
+        <hr class="my-4">
+        {% for event in events %}
+            <div class="card text-center">
+                <div class="card-header">{{ event.name }}</div>
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+                <div class="card-footer text-muted">{{ event.createAt|date }}</div>
+            </div>
+            <br>
+        {% endfor %}
     </div>
+</div>
 {% endblock %}
