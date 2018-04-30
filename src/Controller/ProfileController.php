@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Form\ProfileType;
+use App\Form\Type\ProfileType;
 use App\Manager\UserManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
