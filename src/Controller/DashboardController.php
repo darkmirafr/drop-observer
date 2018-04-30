@@ -29,7 +29,7 @@ class DashboardController extends AbstractController
         $events = $eventRepository->findBy(['user' => $this->getUser()]);
 
         return $this->render('dashboard/index.html.twig', [
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
             'events' => $events,
         ]);
     }

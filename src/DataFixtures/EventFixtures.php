@@ -11,9 +11,9 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        for ($i = 0; $i < 3; $i++) {
+        for ($i = 0; $i < 3; ++$i) {
             $event = new Event();
-            $event->setName('Event_' . $i);
+            $event->setName('Event_'.$i);
             $event->setCreateAt(new \DateTime());
             $event->setUser($this->getReference(UserFixtures::USER_REFERENCE));
             $manager->persist($event);
@@ -24,11 +24,11 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
 
     /**
      * This method must return an array of fixtures classes
-     * on which the implementing class depends on
+     * on which the implementing class depends on.
      *
      * @return array
      */
-    function getDependencies()
+    public function getDependencies()
     {
         return [
             UserFixtures::class,
