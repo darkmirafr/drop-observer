@@ -1,20 +1,18 @@
+checks:
+    php: true
+
 build:
     environment:
-        docker: true
-    project_setup:
-        - cp .env.dist .env
-        - cp docker-compose.override.yml.dist docker-compose.override.yml
-        - docker-compose up -d
-        - docker-compose exec web composer install
-        - docker-compose exec web php bin/console doctrine:database:drop --force
-        - docker-compose exec web php bin/console doctrine:database:create
-        - docker-compose exec web php bin/console doctrine:schema:update --force
-        - docker-compose exec web php bin/console doctrine:schema:validate
-        - docker-compose exec web php bin/console doctrine:fixtures:load --no-interaction
+        php:
+            version: 7.1
+        mysql: 5.7
+        variables:
+            APP_ENV: 'test'
+            DATABASE_URL: 'mysql://root@localhost:3306/mydatabase'
     tests:
         override:
             -
-                command:  docker-compose exec web php bin/phpunit --coverage-clover=my-coverage-file
+                command: php bin/phpunit --coverage-clover=my-coverage-file
                 coverage:
                     file: my-coverage-file
                     format: php-clover
