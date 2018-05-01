@@ -12,7 +12,10 @@ build:
 
     project_setup:
         before:
-            - mysql -e "CREATE DATABASE mydatabase"
+            - php bin/console doctrine:database:drop --force
+            - php bin/console doctrine:database:create
+            - php bin/console doctrine:schema:update --force
+            - php bin/console doctrine:schema:validate
     tests:
         override:
             -
