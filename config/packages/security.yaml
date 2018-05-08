@@ -29,4 +29,4 @@ security:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/profile, roles: ROLE_USER }
         - { path: ^/dashboard, roles: ROLE_USER }
-        - { path: ^/twitter, roles: ROLE_USER }
+        - { path: ^/command-scheduler, role: ROLE_USER_DARKMIRA }

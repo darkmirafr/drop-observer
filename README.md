@@ -3,10 +3,6 @@
 `Travis CI`
 [![Build Status](https://travis-ci.org/Darkmira/drop-observer.svg?branch=develop)](https://travis-ci.org/Darkmira/drop-observer)
 
-`Shippable`
-[![Run Status](https://api.shippable.com/projects/5aca871fcb68540600e1736d/badge?branch=develop)](https://app.shippable.com/github/Darkmira/drop-observer)
-[![Coverage Badge](https://api.shippable.com/projects/5aca871fcb68540600e1736d/coverageBadge?branch=develop)](https://app.shippable.com/github/Darkmira/drop-observer) 
-
 `Codacy`
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/3ce7e103844f4d59b7467946f8c83f9b)](https://www.codacy.com/app/cvilleger/drop-observer?utm_source=github.com&utm_medium=referral&utm_content=Darkmira/drop-observer&utm_campaign=Badge_Coverage)
 

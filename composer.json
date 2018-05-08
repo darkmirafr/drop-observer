@@ -8,6 +8,7 @@
         "ext-iconv": "*",
         "endroid/twitter": "^2.0",
         "hwi/oauth-bundle": "^0.6.2",
+        "jmose/command-scheduler-bundle": "^2.0",
         "php-http/guzzle6-adapter": "^1.1",
         "php-http/httplug-bundle": "^1.10",
         "symfony/asset": "^4.0",
@@ -32,8 +33,7 @@
         "symfony/dotenv": "^4.0",
         "symfony/maker-bundle": "^1.1",
         "symfony/phpunit-bridge": "^4.0",
-        "symfony/profiler-pack": "^1.0",
-        "symfony/web-server-bundle": "^4.0"
+        "symfony/profiler-pack": "^1.0"
     },
     "config": {
         "preferred-install": {
@@ -75,7 +75,7 @@
     "extra": {
         "symfony": {
             "id": "01C65RRWTC7Y5K2RKEKYY15TE8",
-            "allow-contrib": false
+            "allow-contrib": "true"
         }
     }
 }
