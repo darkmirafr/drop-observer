@@ -1,7 +1,7 @@
 {
   "name": "Darkmira/drop-observer",
-  "description": "DROP | obServer project repository",
-  "repository": "https://github.com/Darkmira/drop-observer",
+  "description": "Controlled private platform reachable from employees and partners to a subset of the information accessible from an organization.",
+  "repository": "https://github.com/Darkmira/extranet",
   "success_url": "/",
   "env": {
       "APP_ENV": {

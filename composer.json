@@ -8,7 +8,6 @@
         "ext-iconv": "*",
         "endroid/twitter": "^2.0",
         "hwi/oauth-bundle": "^0.6.2",
-        "jmose/command-scheduler-bundle": "^2.0",
         "php-http/guzzle6-adapter": "^1.1",
         "php-http/httplug-bundle": "^1.10",
         "symfony/asset": "^4.0",

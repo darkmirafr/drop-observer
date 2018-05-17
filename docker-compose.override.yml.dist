@@ -6,12 +6,12 @@ services:
       ports:
           - "80:80"
 
-  phpmyadmin:
-      image: phpmyadmin/phpmyadmin
-      depends_on:
-          - database
-      ports:
-          - "8080:80"
-      environment:
-          MYSQL_ROOT_PASSWORD: root
-          PMA_HOST: database
+#  phpmyadmin:
+#      image: phpmyadmin/phpmyadmin
+#      depends_on:
+#          - database
+#      ports:
+#          - "8080:80"
+#      environment:
+#          MYSQL_ROOT_PASSWORD: root
+#          PMA_HOST: database

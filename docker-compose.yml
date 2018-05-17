@@ -17,7 +17,7 @@ services:
           PHP_DISPLAY_ERRORS: 1
 
   database:
-      image: percona:5.7
+      image: mysql:5.7
       volumes:
           - ./docker/database:/etc/mysql/conf.d
       environment:

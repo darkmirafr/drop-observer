@@ -16,4 +16,3 @@
 
 docker-compose.override.yml
 /docker/database
-/.idea/

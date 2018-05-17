@@ -104,18 +104,6 @@
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
-    "jmose/command-scheduler-bundle": {
-        "version": "2.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "2.0",
-            "ref": "a72826cab4a4f55bc1471729d21c93ad6a50ab40"
-        }
-    },
-    "mtdowling/cron-expression": {
-        "version": "v1.2.1"
-    },
     "nikic/php-parser": {
         "version": "v4.0.0"
     },
@@ -178,15 +166,6 @@
     },
     "psr/simple-cache": {
         "version": "1.0.0"
-    },
-    "sensio/framework-extra-bundle": {
-        "version": "4.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "4.0",
-            "ref": "aaddfdf43cdecd4cf91f992052d76c2cadc04543"
-        }
     },
     "symfony/asset": {
         "version": "v4.0.4"
@@ -347,15 +326,6 @@
     "symfony/templating": {
         "version": "v4.0.8"
     },
-    "symfony/translation": {
-        "version": "3.3",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "3.3",
-            "ref": "6bcd6c570c017ea6ae5a7a6a027c929fd3542cd8"
-        }
-    },
     "symfony/twig-bridge": {
         "version": "v4.0.4"
     },
@@ -367,9 +337,6 @@
             "version": "3.3",
             "ref": "f75ac166398e107796ca94cc57fa1edaa06ec47f"
         }
-    },
-    "symfony/validator": {
-        "version": "v4.0.9"
     },
     "symfony/var-dumper": {
         "version": "v4.0.4"

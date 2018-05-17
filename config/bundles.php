@@ -12,6 +12,4 @@ return [
     HWI\Bundle\OAuthBundle\HWIOAuthBundle::class => ['all' => true],
     Http\HttplugBundle\HttplugBundle::class => ['all' => true],
     Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle::class => ['dev' => true, 'test' => true],
-    Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle::class => ['all' => true],
-    JMose\CommandSchedulerBundle\JMoseCommandSchedulerBundle::class => ['all' => true],
 ];
