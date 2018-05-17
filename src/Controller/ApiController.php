@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Service\TwitterService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
@@ -15,9 +14,9 @@ class ApiController extends AbstractController
         $response->headers->set('X-Accel-Buffering', 'no');
 
         $response->setCallback(function () {
-            while (true){
+            while (true) {
                 sleep(1);
-                echo random_int(0,1);
+                echo random_int(0, 1);
                 flush();
             }
         });
