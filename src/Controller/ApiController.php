@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ApiController extends AbstractController
 {
-    public function index(TwitterService $twitterService)
+    public function index()
     {
         $response = new StreamedResponse();
         // disables FastCGI buffering in Nginx only for this response
