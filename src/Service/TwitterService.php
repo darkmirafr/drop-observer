@@ -4,11 +4,9 @@ namespace App\Service;
 
 use Abraham\TwitterOAuth\TwitterOAuth;
 use App\Entity\Tweet;
-use App\Entity\User;
 use App\Repository\TweetRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Endroid\Twitter\Client;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
@@ -20,30 +18,14 @@ class TwitterService
     private $tweetRepository;
     private $serializer;
 
-    public function __construct(EntityManagerInterface $entityManager, TweetRepository $tweetRepository, TokenStorageInterface $tokenStorage)
+    public function __construct(TwitterOAuth $twitterOAuth, EntityManagerInterface $entityManager, TweetRepository $tweetRepository)
     {
-        /** @var User $user */
-        $user = $tokenStorage->getToken()->getUser();
-
-        $twitterOAuth = new TwitterOAuth(
-            $user->getTwitterConsumerKey(),
-            $user->getTwitterConsumerSecret(),
-            $user->getTwitterAccessToken(),
-            $user->getTwitterAccessTokenSecret()
-        );
         $this->client = new Client($twitterOAuth);
         $this->entityManager = $entityManager;
         $this->tweetRepository = $tweetRepository;
 
         $serializer = new Serializer([new ObjectNormalizer()], [new JsonEncoder()]);
         $this->serializer = $serializer;
-    }
-
-    public function checkTwitterClient(): bool
-    {
-        $accountSettings = $this->client->getClient()->get('account/settings');
-
-        return !isset($accountSettings->errors);
     }
 
     public function getStatusesMentionsTimeline()

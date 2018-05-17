@@ -31,6 +31,6 @@ profile:
 logout:
     path: /logout
 
-#twitter:
-#    path: /twitter
-#    controller: App\Controller\TwitterController::index
+api:
+    path: /api
+    controller: App\Controller\ApiController::index
