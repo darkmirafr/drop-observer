@@ -1,4 +1,4 @@
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/46356d02-f97a-4f9c-80d2-634380693915/big.png)](https://insight.sensiolabs.com/projects/46356d02-f97a-4f9c-80d2-634380693915)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/4caef27a-276c-4cbf-99a8-6176f51e819a/big.png)](https://insight.sensiolabs.com/projects/4caef27a-276c-4cbf-99a8-6176f51e819a)
 
 `Travis CI`
 [![Build Status](https://travis-ci.org/Darkmira/drop-observer.svg?branch=develop)](https://travis-ci.org/Darkmira/drop-observer)
@@ -11,12 +11,6 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/Darkmira/drop-observer/badges/coverage.png?b=develop)](https://scrutinizer-ci.com/g/Darkmira/drop-observer/?branch=develop)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Darkmira/drop-observer/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/Darkmira/drop-observer/?branch=develop)
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/Darkmira/drop-observer/badges/code-intelligence.svg?b=develop)](https://scrutinizer-ci.com/code-intelligence)
-
-`Buddy`
-[![buddy pipeline](https://app.buddy.works/villegerc/drop-observer/pipelines/pipeline/134904/badge.svg?token=4c0be1ced16e6dd0a7ede5fdd3d51b08464905c0372ddfac2d5cc54e8f7e80fb "buddy pipeline")](https://app.buddy.works/villegerc/drop-observer/pipelines/pipeline/134904)
-
-`Gemnasium`
-[![Dependency Status](https://beta.gemnasium.com/badges/github.com/Darkmira/drop-observer.svg)](https://beta.gemnasium.com/projects/github.com/Darkmira/drop-observer)
 
 `Docker`
 [![](https://images.microbadger.com/badges/image/cvilleger/drop-observer.svg)](https://microbadger.com/images/cvilleger/drop-observer)
