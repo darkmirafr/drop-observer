@@ -9,6 +9,7 @@ class ApiController extends AbstractController
 {
     public function index()
     {
+        ob_implicit_flush(true);
         $response = new StreamedResponse();
         // disables FastCGI buffering in Nginx only for this response
         $response->headers->set('X-Accel-Buffering', 'no');
@@ -17,7 +18,6 @@ class ApiController extends AbstractController
             while (true) {
                 sleep(1);
                 echo random_int(0, 1);
-                flush();
             }
         });
         $response->send();
