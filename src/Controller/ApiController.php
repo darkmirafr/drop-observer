@@ -9,7 +9,7 @@ class ApiController extends AbstractController
 {
     public function index()
     {
-        ob_implicit_flush(true);
+        ob_implicit_flush(1);
         $response = new StreamedResponse();
         // disables FastCGI buffering in Nginx only for this response
         $response->headers->set('X-Accel-Buffering', 'no');
