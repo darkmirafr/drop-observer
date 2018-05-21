@@ -35,7 +35,7 @@ class Tweet
     /**
      * @var bool
      *
-     * @ORM\Column("boolean")
+     * @ORM\Column(type="boolean")
      */
     private $truncated;
 

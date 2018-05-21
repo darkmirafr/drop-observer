@@ -7,26 +7,6 @@
     <div class="container">
         <h1 class="display-4">Welcome to your dashboard</h1>
         <hr class="my-4">
-        {{ form_start(form) }}
-        {{ form_errors(form) }}
-        <div class="form-group">
-            {{ form_label(form.name ) }}
-            {{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Name of your event'}}) }}
-        </div>
-        {{ form_end(form) }}
-        <hr class="my-4">
-        {% for event in events %}
-            <div class="card text-center">
-                <div class="card-header">{{ event.name }}</div>
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-                <div class="card-footer text-muted">{{ event.createAt|date }}</div>
-            </div>
-            <br>
-        {% endfor %}
     </div>
 </div>
 {% endblock %}

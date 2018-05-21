@@ -2,24 +2,15 @@
 
 namespace App\Controller;
 
+use App\Service\TwitterService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\StreamedResponse;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class ApiController extends AbstractController
 {
-    public function index()
+    public function index(TwitterService $twitterService)
     {
-        ob_implicit_flush(1);
-        $response = new StreamedResponse();
-        // disables FastCGI buffering in Nginx only for this response
-        $response->headers->set('X-Accel-Buffering', 'no');
-
-        $response->setCallback(function () {
-            while (true) {
-                sleep(1);
-                echo random_int(0, 1);
-            }
-        });
-        $response->send();
+        $twitterService->persistLastTweets();
+        return new JsonResponse($twitterService->getStatusesMentionsTimeline(), 200, [], true);die;
     }
 }
