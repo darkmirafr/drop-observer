@@ -11,6 +11,7 @@ class ApiController extends AbstractController
     public function index(TwitterService $twitterService)
     {
         $twitterService->persistLastTweets();
+
         return new JsonResponse($twitterService->getStatusesMentionsTimeline(), 200, [], true);
     }
 }
