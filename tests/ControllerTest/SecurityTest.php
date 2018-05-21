@@ -63,19 +63,4 @@ class SecurityTest extends WebTestCase
         $this->assertSame('phpunitText', $tweet->getText());
         $this->assertSame($createdAt, $tweet->getCreatedAt());
     }
-
-    public function testEventIsInstantiable()
-    {
-        $event = new Event();
-        $user = new User();
-        $event->setUser(new User());
-        $event->setName('phpunitEvent');
-        $createdAt = new \DateTime();
-        $event->setCreateAt($createdAt);
-
-        $this->assertInstanceOf(Event::class, $event);
-        $this->assertEquals($user, $event->getUser());
-        $this->assertSame('phpunitEvent', $event->getName());
-        $this->assertSame($createdAt, $event->getCreateAt());
-    }
 }
