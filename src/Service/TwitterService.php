@@ -33,7 +33,7 @@ class TwitterService
         return $this->serializer->serialize($this->tweetRepository->findBy([], null, 50), 'json');
     }
 
-    public function persistLastTweets()
+    public function persistLastTweets(): void
     {
         /** @var Tweet $lastTweet */
         $lastTweet = $this->tweetRepository->findOneBy([], ['createdAt' => 'DESC']);
