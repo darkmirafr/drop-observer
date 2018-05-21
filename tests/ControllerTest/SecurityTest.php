@@ -2,7 +2,6 @@
 
 namespace App\ControllerTest;
 
-use App\Entity\Event;
 use App\Entity\Tweet;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Client;
