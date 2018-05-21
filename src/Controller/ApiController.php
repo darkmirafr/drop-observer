@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ApiController extends AbstractController
 {
-
     public function index(Request $request, TwitterService $twitterService, ContainerInterface $container)
     {
         if ($container->getParameter('app_token') !== $request->headers->get('token')) {
@@ -21,7 +20,7 @@ class ApiController extends AbstractController
         // Placeholder
         $data = [];
         for ($i = 0; $i < 10; $i++) {
-            $data[] = ['pseudo' => 'user' . random_int(0, 1000)];
+            $data[] = ['pseudo' => 'user'.random_int(0, 1000)];
         }
 
 //        $twitterService->persistLastTweets();
