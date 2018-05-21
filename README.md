@@ -21,9 +21,6 @@
 `Heroku`
 [![Heroku](https://heroku-badge.herokuapp.com/?app=drop-observer&style=flat&svg=1)](https://drop-observer.herokuapp.com/)
 
-`StyleCI`
-[![StyleCI](https://styleci.io/repos/95036291/shield?branch=develop)](https://styleci.io/repos/95036291)
-
 `Semaphore`
 [![Build Status](https://semaphoreci.com/api/v1/cvilleger/drop-observer/branches/develop/badge.svg)](https://semaphoreci.com/cvilleger/drop-observer)
 
