@@ -9,6 +9,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Tweet
 {
+    const TEAM_GREEN = 'green';
+    const TEAM_BLACK = 'black';
+    const MOVE_LEFT = 'left';
+    const MOVE_RIGHT = 'right';
+    const MOVE_FORWARD = 'forward';
+    const MOVE_BACKWARD = 'backward';
+
     /**
      * @var int
      *
@@ -38,13 +45,6 @@ class Tweet
      * @ORM\Column
      */
     private $text;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(type="boolean")
-     */
-    private $truncated;
 
     /**
      * @var string
@@ -129,26 +129,6 @@ class Tweet
     public function setText(string $text): self
     {
         $this->text = $text;
-
-        return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isTruncated(): bool
-    {
-        return $this->truncated;
-    }
-
-    /**
-     * @param bool $truncated
-     *
-     * @return Tweet
-     */
-    public function setTruncated(bool $truncated): self
-    {
-        $this->truncated = $truncated;
 
         return $this;
     }
