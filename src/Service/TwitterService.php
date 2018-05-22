@@ -38,22 +38,21 @@ class TwitterService
         /** @var Tweet $lastTweet */
         $lastTweet = $this->tweetRepository->findOneBy([], ['createdAt' => 'DESC']);
 
-        $lastTweetCreatedAt = null;
+        $tweetsParameters = [];
         if (null !== $lastTweet) {
-            $lastTweetCreatedAt = $lastTweet->getCreatedAt();
+            $tweetsParameters = ['since_id' => $lastTweet->getTweetId()];
         }
 
-        $tweetsArray = $this->client->getClient()->get('statuses/mentions_timeline');
+        $tweetsArray = $this->client->getClient()->get('statuses/mentions_timeline', $tweetsParameters);
+
         foreach ($tweetsArray as $tweetArray) {
-            $createdAt = new \DateTime($tweetArray->created_at);
-            if ($lastTweetCreatedAt < $createdAt || null === $lastTweetCreatedAt) {
-                $tweet = new Tweet();
-                $tweet->setCreatedAt($createdAt);
-                $tweet->setText($tweetArray->text);
-                $tweet->setTruncated($tweetArray->truncated);
-                $tweet->setUser($tweetArray->user->screen_name);
-                $this->entityManager->persist($tweet);
-            }
+            $tweet = new Tweet();
+            $tweet->setTweetId($tweetArray->id_str);
+            $tweet->setCreatedAt(new \DateTime($tweetArray->created_at));
+            $tweet->setText($tweetArray->text);
+            $tweet->setTruncated($tweetArray->truncated);
+            $tweet->setUser($tweetArray->user->screen_name);
+            $this->entityManager->persist($tweet);
         }
         $this->entityManager->flush();
     }

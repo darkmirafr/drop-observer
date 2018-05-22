@@ -19,6 +19,13 @@ class Tweet
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column
+     */
+    private $tweetId;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(type="datetime")
@@ -47,11 +54,43 @@ class Tweet
     private $user;
 
     /**
+     * @var string
+     *
+     * columnDefinition="ENUM('left', 'right', 'forward', 'backward')
+     * @ORM\Column(nullable=true)
+     */
+    private $move;
+
+    /**
+     * columnDefinition="ENUM('green', 'black')
+     * @ORM\Column(nullable=true)
+     */
+    private $team;
+
+    /**
      * @return int
      */
     public function getId(): int
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTweetId(): string
+    {
+        return $this->tweetId;
+    }
+
+    /**
+     * @param string $tweetId
+     * @return Tweet
+     */
+    public function setTweetId(string $tweetId): Tweet
+    {
+        $this->tweetId = $tweetId;
+        return $this;
     }
 
     /**
@@ -131,6 +170,42 @@ class Tweet
     {
         $this->user = $user;
 
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMove()
+    {
+        return $this->move;
+    }
+
+    /**
+     * @param mixed $move
+     * @return Tweet
+     */
+    public function setMove($move)
+    {
+        $this->move = $move;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTeam()
+    {
+        return $this->team;
+    }
+
+    /**
+     * @param mixed $team
+     * @return Tweet
+     */
+    public function setTeam($team)
+    {
+        $this->team = $team;
         return $this;
     }
 }

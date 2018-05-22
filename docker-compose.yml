@@ -19,7 +19,7 @@ services:
   database:
       image: mysql:5.7
       volumes:
-          - ./docker/database:/etc/mysql/conf.d
+          - ./docker/database:/var/lib/mysql
       environment:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: mydatabase

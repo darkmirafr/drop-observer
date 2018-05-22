@@ -27,6 +27,9 @@
       },
       "TWITTER_ACCESS_TOKEN_SECRET": {
         "required": true
+      },
+      "APP_TOKEN": {
+        "required": true
       }
   }
 }

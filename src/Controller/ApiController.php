@@ -11,21 +11,23 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ApiController extends AbstractController
 {
+    /**
+     * To call every minute with correct token header
+     *
+     * @param Request $request
+     * @param TwitterService $twitterService
+     * @param ContainerInterface $container
+     * @return JsonResponse
+     */
     public function index(Request $request, TwitterService $twitterService, ContainerInterface $container)
     {
         if ($container->getParameter('app_token') !== $request->headers->get('token')) {
             return new JsonResponse(null, Response::HTTP_FORBIDDEN);
         }
 
-        // Placeholder
-        $data = [];
-        for ($i = 0; $i < 10; $i++) {
-            $data[] = ['pseudo' => 'user'.random_int(0, 1000)];
-        }
+        $twitterService->persistLastTweets();
+        $data = $twitterService->getStatusesMentionsTimeline();
 
-//        $twitterService->persistLastTweets();
-//        $data = $twitterService->getStatusesMentionsTimeline();
-
-        return new JsonResponse($data, Response::HTTP_OK, [], false);
+        return new JsonResponse($data, Response::HTTP_OK, [], true);
     }
 }
