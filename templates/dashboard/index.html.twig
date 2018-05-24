@@ -7,6 +7,34 @@
     <div class="container">
         <h1 class="display-4">Welcome to your dashboard</h1>
         <hr class="my-4">
+        <table class="table table-sm table-dark">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Created At</th>
+                <th scope="col">Tweet</th>
+                <th scope="col">user</th>
+                <th scope="col">move</th>
+                <th scope="col">team</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for tweet in tweets %}
+                <tr>
+                    <th scope="row">{{ tweet.id }}</th>
+                    <td>{{ tweet.createdAt.timestamp|date }}</td>
+                    <td>{{ tweet.text }}</td>
+                    <td>{{ tweet.user }}</td>
+                    <td>{{ tweet.move }}</td>
+                    <td>{{ tweet.team }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <th scope="row">No data found</th>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
 </div>
 {% endblock %}

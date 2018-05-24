@@ -9,6 +9,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Tweet
 {
+    const TEAM_GREEN = 'green';
+    const TEAM_BLACK = 'black';
+    const MOVE_LEFT = 'left';
+    const MOVE_RIGHT = 'right';
+    const MOVE_FORWARD = 'forward';
+    const MOVE_BACKWARD = 'backward';
+
     /**
      * @var int
      *
@@ -17,6 +24,13 @@ class Tweet
      * @ORM\GeneratedValue
      */
     private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column
+     */
+    private $tweetId;
 
     /**
      * @var \DateTime
@@ -33,13 +47,6 @@ class Tweet
     private $text;
 
     /**
-     * @var bool
-     *
-     * @ORM\Column(type="boolean")
-     */
-    private $truncated;
-
-    /**
      * @var string
      *
      * @ORM\Column
@@ -47,11 +54,43 @@ class Tweet
     private $user;
 
     /**
+     * @var string
+     *
+     * columnDefinition="ENUM('left', 'right', 'forward', 'backward')
+     * @ORM\Column(nullable=true)
+     */
+    private $move;
+
+    /**
+     * columnDefinition="ENUM('green', 'black')
+     * @ORM\Column(nullable=true)
+     */
+    private $team;
+
+    /**
      * @return int
      */
     public function getId(): int
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTweetId(): string
+    {
+        return $this->tweetId;
+    }
+
+    /**
+     * @param string $tweetId
+     * @return Tweet
+     */
+    public function setTweetId(string $tweetId): Tweet
+    {
+        $this->tweetId = $tweetId;
+        return $this;
     }
 
     /**
@@ -95,26 +134,6 @@ class Tweet
     }
 
     /**
-     * @return bool
-     */
-    public function isTruncated(): bool
-    {
-        return $this->truncated;
-    }
-
-    /**
-     * @param bool $truncated
-     *
-     * @return Tweet
-     */
-    public function setTruncated(bool $truncated): self
-    {
-        $this->truncated = $truncated;
-
-        return $this;
-    }
-
-    /**
      * @return string
      */
     public function getUser(): string
@@ -131,6 +150,42 @@ class Tweet
     {
         $this->user = $user;
 
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMove()
+    {
+        return $this->move;
+    }
+
+    /**
+     * @param mixed $move
+     * @return Tweet
+     */
+    public function setMove($move)
+    {
+        $this->move = $move;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTeam()
+    {
+        return $this->team;
+    }
+
+    /**
+     * @param mixed $team
+     * @return Tweet
+     */
+    public function setTeam($team)
+    {
+        $this->team = $team;
         return $this;
     }
 }

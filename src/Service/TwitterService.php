@@ -30,30 +30,48 @@ class TwitterService
 
     public function getStatusesMentionsTimeline()
     {
-        return $this->serializer->serialize($this->tweetRepository->findBy([], null, 50), 'json');
+        return $this->serializer->serialize($this->tweetRepository->findBy([], null, 200), 'json');
     }
 
-    public function persistLastTweets()
+    public function persistLastTweets(): void
     {
         /** @var Tweet $lastTweet */
         $lastTweet = $this->tweetRepository->findOneBy([], ['createdAt' => 'DESC']);
 
-        $lastTweetCreatedAt = null;
+        $tweetsParameters = [];
         if (null !== $lastTweet) {
-            $lastTweetCreatedAt = $lastTweet->getCreatedAt();
+            $tweetsParameters = ['since_id' => $lastTweet->getTweetId()];
         }
 
-        $tweetsArray = $this->client->getClient()->get('statuses/mentions_timeline');
+        $tweetsArray = $this->client->getClient()->get('statuses/mentions_timeline', $tweetsParameters);
+
         foreach ($tweetsArray as $tweetArray) {
-            $createdAt = new \DateTime($tweetArray->created_at);
-            if ($lastTweetCreatedAt < $createdAt || null === $lastTweetCreatedAt) {
-                $tweet = new Tweet();
-                $tweet->setCreatedAt($createdAt);
-                $tweet->setText($tweetArray->text);
-                $tweet->setTruncated($tweetArray->truncated);
-                $tweet->setUser($tweetArray->user->screen_name);
-                $this->entityManager->persist($tweet);
+            $tweet = new Tweet();
+            $tweet->setTweetId($tweetArray->id_str);
+            $tweet->setCreatedAt(new \DateTime($tweetArray->created_at));
+
+            $team = null;
+            foreach ([Tweet::TEAM_GREEN, Tweet::TEAM_GREEN] as $value){
+                if (false !== strpos($tweetArray->text, $value)){
+                    $team = $value;
+                    break;
+                }
             }
+            $tweet->setTeam($team);
+
+            $move = null;
+            foreach ([Tweet::MOVE_LEFT, Tweet::MOVE_RIGHT, Tweet::MOVE_FORWARD, Tweet::MOVE_BACKWARD] as $value){
+                if (false !== strpos($tweetArray->text, $value)){
+                    $move = $value;
+                    break;
+                }
+            }
+            $tweet->setMove($move);
+
+            $tweet->setText($tweetArray->text);
+            $tweet->setUser($tweetArray->user->screen_name);
+
+            $this->entityManager->persist($tweet);
         }
         $this->entityManager->flush();
     }

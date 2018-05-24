@@ -1,4 +1,6 @@
 parameters:
+    env(APP_TOKEN): ''
+    app_token: '%env(APP_TOKEN)%'
 
 services:
     # default configuration for services in *this* file
